@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+    
+}
+div{
+    border: 1px solid black;
+    flex-grow: 1;
+    padding: 10px;
+}

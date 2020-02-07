@@ -1,0 +1,3 @@
+<h1>Document</h1></br></br><table style='border: 1px solid black'><th>Marks</th><tr ><td style='border: 1px solid black'>mat</td><td style='border: 1px solid black'>90</td></tr></table></br><b>Phone Number</b>: +918348097405</br><b>Email</b>: arjakmondal@gmail.com</br><b>Profile Picture:</b></br><br />
+<b>Notice</b>:  Undefined variable: img_dest in <b>/var/www/phpasgn/php_basic-assignments/Assignment6/index.php</b> on line <b>42</b><br />
+<img src=' 'width='100px' height='100px'></br>

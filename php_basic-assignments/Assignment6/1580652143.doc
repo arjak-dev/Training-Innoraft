@@ -1,0 +1,16 @@
+<h1>Document</h1></br><br />
+<b>Notice</b>:  Undefined variable: first_name in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>41</b><br />
+<b>First Name</b> : </br><br />
+<b>Notice</b>:  Undefined variable: second_name in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>42</b><br />
+<b>Second Name</b>: </br><br />
+<b>Notice</b>:  Undefined variable: email_id in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>43</b><br />
+<b>Email</b>: </br><br />
+<b>Notice</b>:  Undefined variable: phone_no in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>44</b><br />
+<b>Phone Number</b>: </br></br><table style='border: 1px solid black'><th>Marks</th><br />
+<b>Notice</b>:  Undefined variable: final_marks in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>48</b><br />
+<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>48</b><br />
+</table></br><b>Profile Picture:</b></br><br />
+<b>Notice</b>:  Undefined variable: img_dest in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>57</b><br />
+<img src=' 'width='100px' height='100px'></br><br />
+<b>Notice</b>:  Undefined variable: first_name in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>59</b><br />

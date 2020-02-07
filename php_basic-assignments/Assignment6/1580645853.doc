@@ -1,0 +1,3 @@
+<h1>Document</h1></br><b>First Name</b> : </br><b>Second Name</b>: </br><b>Email</b>: </br><b>Phone Number</b>: </br></br><table style='border: 1px solid black'><th>Marks</th><br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>/var/www/phpasgn/Assignment6/index.php</b> on line <b>35</b><br />
+</table></br>
