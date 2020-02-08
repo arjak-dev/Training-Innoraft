@@ -7,23 +7,6 @@ class student {
     public $grade;
     public $marks;
 
-    function getSubjectCodeAndMarks($student,$student_id){
-        $student_marks=[];    
-        foreach($student as $key=>$value){
-                if($value->id == $student_id){
-                        return $value->marks->subject_marks;
-                }
-            }
-    }
-   
-    function getStudentstatus($student,$subject){
-        print_r($student[0]->marks->subject_marks);
-    //    foreach($student as $key=>$value){
-    //        foreach($subject as $key=>$value){
-    //         //    if($student->marks[0)
-    //        }
-    //    }
-
     }
 }
 class subject{
@@ -32,16 +15,19 @@ class subject{
     public $code;
     public $passing_marks;
     public $grade;
-    
-    function getSubjectDetails($subject,$grade){
-        $selected_subjects = [];
+
+    function getPassingMarksAndGrade($subject,$grade){
+        $output = [];
         foreach($subject as $key=>$value){
-            if($subject[$key]->grade == $grade){
-                $selected_subjects += array($subject[$key]);
+              if($value->grade == $grade){
+                $new =array($value->name,$value->grade,$value->passing_marks);
+                array_push($output,$new);
+               echo "<br>";
             }
-        }    
-       return $selected_subjects;  
-    } 
+        }
+       return $output;
+    }      
+    
 }
 class marks{
     public $subject_marks;

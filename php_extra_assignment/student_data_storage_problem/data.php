@@ -55,18 +55,16 @@
    $subject[3]->name = "Computer";
    $subject[3]->code= "CM";
    $subject[3]->passing_marks = 40;
-    $subject[0]->grade = 10;
+    $subject[3]->grade = 10;
 
    $subject[4] = new subject();
    $subject[4]->name = "English";
    $subject[4]->code= "EN";
    $subject[4]->passing_marks = 30;
    $subject[4]->grade = 12;
-//    print_r($subject);
+   (new subject())->getPassingMarksAndGrade($subject,12);
 
-    echo "</br>";
-    $getSubjectdetails = (new subject())->getSubjectDetails($subject,$student[1]->grade);
-    // echo (json_encode($getSubjectdetails)."<br>");
+   
 //-------------------Marks Data Input-----------------------//
     $marks =[];
     $marks[0]=new marks();
@@ -86,9 +84,5 @@
     $student[3]->marks = $marks[3];
 
 
-    //print_r($student[0]->marks->subject_marks);
-    // print_r($marks);
-     $getMarks =new student();
-    //  print_r($getMarks->getSubjectCodeAndMarks($student,"st2"));
-        $getMarks->getStudentstatus($student,$subject);
+   
 ?>
