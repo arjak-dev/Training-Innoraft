@@ -29,7 +29,7 @@
    
   $marks =[];
   $marks[0]=new marks();
-  $marks[0]->subject_marks = ['PH'=>20,'CM'=>40,'MT'=>45];
+  $marks[0]->subject_marks = ['PH'=>20,'CM'=>40];
   $student[0]->marks = $marks[0];
   
   $marks[1]=new marks();
@@ -86,7 +86,7 @@
 
   // print_r((new subject())->getSubjectDetails($subject,12));
   //  print_r((new student())->getStudentMarksDetails($student,$student[0]->id)); 
-  (new student())->getStudentStatus($student[2]->id,$student,$subject);
+  (new student())->getStudentStatus($student[0]->id,$student,$subject);
   //print_r($student[2]);
    
 //-------------------Marks Data Input-----------------------//
