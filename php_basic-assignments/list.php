@@ -35,7 +35,7 @@
         <title>
             Assignments List
         </title>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/Training-Innoraft/style.css">
     </head>
     <body>
         <H1>Assignments</H1>

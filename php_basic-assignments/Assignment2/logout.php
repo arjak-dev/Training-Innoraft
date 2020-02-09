@@ -4,5 +4,5 @@
     //print_r($code);
     unset($_SESSION['code']);
     session_destroy();
-    header("Location: /php_basic-assignments/index.php");
+    header("Location: /Training-Innoraft/php_basic-assignments/index.php");
 ?>

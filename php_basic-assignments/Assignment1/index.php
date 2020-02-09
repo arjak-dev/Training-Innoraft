@@ -5,30 +5,30 @@
         // $_SESSION['code'] = 0;
          if(!isset($_SESSION['code'])){
                 unset($_SESSION['code']);
-                header("Location: /php_basic-assignments/");
+                header("Location: /Training-Innoraft/php_basic-assignments/");
         }
         elseif(isset($_GET['q'])){
                  $q=$_GET['q'];
                  switch($q){
                        case 1:
-                                 header("Location: /php_basic-assignments/Assignment1/");
+                                 header("Location: /Training-Innoraft/php_basic-assignments/Assignment1/");
                                 break;
                        case 2:
-                                header("Location: /php_basic-assignments/Assignment2/");
+                                header("Location: /Training-Innoraft/php_basic-assignments/Assignment2/");
                                 break;
                         case 3:
-                                header("Location: /php_basic-assignments/Assignment3/");
+                                header("Location: /Training-Innoraft/php_basic-assignments/Assignment3/");
                                 break;
                         
                         case 4:
-                                header("Location: /php_basic-assignments/Assignment4/");
+                                header("Location: /Training-Innoraft/php_basic-assignments/Assignment4/");
                                 break;
 
                         case 5:
-                                header("Location: /php_basic-assignments/Assignment5/");
+                                header("Location: /Training-Innoraft/php_basic-assignments/Assignment5/");
                                 break;
                         default:
-                                header("Location: /php_basic-assignments/index.php");
+                                header("Location: /Training-Innoraft/php_basic-assignments/index.php");
                  }
          }
 ?>
@@ -36,7 +36,7 @@
 <html>
 <head>
         <title> First assignment</title>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/Training-Innoraft/style.css">
 </head>
 <body>
         
