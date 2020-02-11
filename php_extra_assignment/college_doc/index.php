@@ -1,17 +1,49 @@
 <?php
   include("class_def.php");
 
-  $college[0] = new College(273, "NSHM");
-  $college[1] = new College(276, "BBIT");
-  $college[2] = new College(277, "GNIT");
+  $college_id = [273, 276, 277];
+  $college_name = ["NSHM", "BBIT", "GNIT"];
+  foreach ($college_id as $key => $value){
+    $college[$key] = new college($college_id[$key], $college_name[$key]);
+  }
   
-  $doc[0] = new Document("Result", "A", 273,1);
-  $doc[1] = new Document("Result", "A", 276, 1);
-  $doc[2] = new Document("Result", "A", 277, 1);
-  $doc[3] = new Document("Semester Exam Dates", "B", "", 1);
-  $doc[4] = new Document("Student Attendence List", "A", 273, 1);
-  $doc[5] = new Document("Mar Marks", "A", "", 0);
-  $doc[6] = new Document("Student Registration", "A", 277, 1);
+  $doc_name = ["Result", 
+    "Result", 
+    "Result", 
+    "Semester Exam Dates", 
+    "Student Attendence List", 
+    "Mar Marks", 
+    "Student Registration"
+  ];
+
+  $doc_type = ["A",
+    "A",
+    "A",
+    "B",
+    "A",
+    "A",
+    "A"
+  ];
+
+  $doc_college = [273,
+    276,
+    277,
+    "",
+    273,
+    "",
+    277
+  ];
+  $doc_sent = [1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ];
+  foreach ($doc_name as $key => $value){
+    $doc[$key] = new Document($doc_name[$key], $doc_type[$key], $doc_college[$key], $doc_sent[$key]);
+  }
 
   $output = $doc[0]->putdoc($college,$doc);
   foreach($output as $key => $value){

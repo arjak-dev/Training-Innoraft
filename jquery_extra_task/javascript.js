@@ -77,7 +77,7 @@ document.querySelector(".section4 button:nth-child(2)").onclick = function() {
 
 //on button click back to top with smooth scroll
 document.querySelector(".section10 button").onclick = function(){
-  setInterval(function() {
+  setInterval(() => {
       window.scrollTo(0, window.pageYOffset-50);
   }, 20);
 }
