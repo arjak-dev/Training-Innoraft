@@ -58,10 +58,10 @@ $(document).ready(function(){
     $('.section8 button').click(function(){
         $(".section8 ul li:nth-child(n+2)").css("border","2px solid red");
     });
-    $('#tab1').click(function(){
+    $('.section4 button:nth-child(1)').click(function(){
         $('.active').text("Tab 1 content");
            });
-    $('#tab2').click(function(){
+    $('.section4 button:nth-child(2)').click(function(){
         $('.active').text("tab 2 conetent");
     });
     $('.section10 button').click(function(){

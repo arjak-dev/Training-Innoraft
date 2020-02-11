@@ -12,10 +12,12 @@
   $players[7] = new Players("h", 54);
 
   //Initializing Teams
-  $team[0] = new Team([$players[0], $players[1]], "w");
-  $team[1] = new Team([$players[2], $players[3]], "x");
-  $team[2] = new Team([$players[4], $players[5]], "y");
-  $team[3] = new Team([$players[6], $players[7]], "z");
+  $team = [
+    new Team([$players[0], $players[1]], "w"),
+    new Team([$players[2], $players[3]], "x"),
+    new Team([$players[4], $players[5]], "y"),
+    new Team([$players[6], $players[7]], "z"),
+  ];
 
   //Initializing matches
   $match[0] = new Match($team[0], $team[1]);
