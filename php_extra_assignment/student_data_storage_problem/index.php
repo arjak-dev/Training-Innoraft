@@ -1,7 +1,12 @@
 <?php
 
-  include("Class_define.php");
-
+  include("Student.php");
+  include("Subject.php");
+  include("Marks.php");
+  use Student\StudentData;
+  use Subject\SubjectData;
+  use Marks\StudentMarks;
+  
   //initializing Student Marks Data Input 
   $marks = [
     ['PH'=>20, 'CM'=>40],

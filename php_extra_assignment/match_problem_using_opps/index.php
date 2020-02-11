@@ -1,5 +1,11 @@
 <?php
-  include("class_def.php");
+  
+  include("Match.php");
+  include("Team.php");
+  include("Player.php");
+  use Match\Match;
+  use Team\Team;
+  use Player\Player;
   
   //Initializing Players
   $player_name = [

@@ -1,5 +1,8 @@
 <?php
-  include("class_def.php");
+  include("College.php");
+  include("Document.php");
+  use CollegeData\College;
+  use Documents\Document;
 
   $college_id = [273, 276, 277];
   $college_name = ["NSHM", "BBIT", "GNIT"];

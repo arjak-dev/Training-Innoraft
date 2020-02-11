@@ -1,5 +1,8 @@
 <?php
-  include("class_def.php");
+  include("People.php");
+  include("Seat.php");
+  use People\People;
+  use Seat\Seat;
   
   //Initializing Peoples
   //Initializing Sitting arrangement
