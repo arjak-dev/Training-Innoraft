@@ -2,14 +2,30 @@
   include("class_def.php");
   
   //Initializing Players
-  $players[0] = new Players("a", 60);
-  $players[1] = new Players("b", 50);
-  $players[2] = new Players("c", 70);
-  $players[3] = new Players("d", 30);
-  $players[4] = new Players("e", 40);
-  $players[5] = new Players("f", 180);
-  $players[6] = new Players("g", 105);
-  $players[7] = new Players("h", 54);
+  $player_name = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+  ];
+  $player_score = [
+    60,
+    50,
+    70,
+    30,
+    40,
+    180,
+    105,
+    54
+  ];
+  foreach ($player_name as $key => $value){
+    $players[$key] = new Player($value, $player_score[$key]);
+  }
+  
 
   //Initializing Teams
   $team = [
@@ -20,13 +36,15 @@
   ];
 
   //Initializing matches
-  $match[0] = new Match($team[0], $team[1]);
-  $match[1] = new Match($team[0], $team[2]);
-  $match[2] = new Match($team[0], $team[3]);
-  $match[3] = new Match($team[1], $team[2]);
-  $match[4] = new Match($team[1], $team[3]);
-  $match[5] = new Match($team[2], $team[3]);
 
+  $match = [
+    new Match($team[0], $team[1]),
+    new Match($team[0], $team[2]),
+    new Match($team[0], $team[3]),
+    new Match($team[1], $team[2]),
+    new Match($team[1], $team[3]),
+    new Match($team[2], $team[3])
+  ];
   
   $match[0]->gethighestscore($match);
   $match[0]->getournamentwinner($match);

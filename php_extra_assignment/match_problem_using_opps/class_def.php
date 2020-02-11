@@ -1,5 +1,5 @@
 <?php
-class Players {
+class Player {
   public $name;
   public $run_scored;
 
