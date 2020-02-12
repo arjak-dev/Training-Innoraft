@@ -1,12 +1,16 @@
 <?php
   namespace MatchData;
 
+  /**
+   * Defines the function of the match class.
+   * 
+   */
   interface MatchInterface{
 
      /**
-     * Get the highest Scorer of the Tournamnet
+     * Get the highest Scorer of the Tournamnet.
      * 
-     * @param $match
+     * @param $match Match
      * An array contains the details of each match 
      * 
      * Prints : Highest Scorer Player Name with the run  
@@ -14,25 +18,25 @@
     public function gethighestscore($match);
 
     /**
-     * Get the total team score 
+     * Get the total team score. 
      * 
-     * @param $team
-     * Contains team playing in each match that is 2 teams 
+     * @param $team Team
+     * -Contains team playing in each match that is 2 teams 
      * 
-     * @return
-     * An Associative array of team name and total score 
+     * @return Associative-Array
+     * -An Associative array of team name and total score 
      * 
      */
     public function gettotalteamScore($team);
 
     /**
-     * Get the Team which own the tournament
+     * Get the Team which own the tournament.
      * 
-     * @param $match
-     * An array contains the details of each match
+     * @param $match match
+     * -An array contains the details of each match
      * 
      * Prints: 
-     * The Winner team and the Run scored by them  
+     * -The Winner team and the Run scored by them  
      */
     public function getournamentwinner($match);
 

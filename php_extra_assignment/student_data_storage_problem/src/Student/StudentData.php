@@ -2,6 +2,27 @@
  
 namespace Student;
 
+/**
+ * It defines the structure to store student details 
+ * 
+ * @var $id String 
+ * -Student Identity no.
+ * 
+ * @var $name String 
+ * -Student Name
+ * 
+ * @var $dob TimeStamp 
+ * -Date of Birth of the student 
+ * 
+ * @var $garde int 
+ * -Grade/class of the student 
+ * 
+ * @var $marks Marks
+ * -Marks of the student 
+ * 
+ * 
+ *  
+ */
 class StudentData implements StudentInterface {
   public $id;
   public $name;

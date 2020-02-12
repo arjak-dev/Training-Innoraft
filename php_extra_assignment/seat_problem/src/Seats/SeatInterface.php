@@ -1,16 +1,19 @@
 <?php
   namespace Seats;
 
+  /**
+   * Defines the function of the Seat class
+   */
   interface SeatInterface {
     
     /**
       * Check there is any faulty sitting arrangement or not 
       * 
-      * @param $seat 
-      * Array which contains the sitting arrangement 
+      * @param $seat Seat
+      * -Array which contains the sitting arrangement 
       * 
-      * @return
-      * If there is no falty seats the retirn the seat array
+      * @return $Seat Seat 
+      * -If there is no falty seats the retirn the seat array
       * Otherwise transfers the control to the arrange_seat() 
       * which returns the correct sitting arrangement and then
       * send the correct sitting arrangement 
@@ -22,13 +25,13 @@
     /**
       * Arrange the falty sitiing arrangement
       * 
-      * @param $seat
+      * @param $seat Seat object
       * Array which contains the sitting arrangement with falt
       * 
-      * @param $temp
+      * @param $temp Seat Object
       * The person needs to be replaced
       * 
-      * @return
+      * @return Seat object
       * Return the correct sitting arrangement     
       */
 

@@ -1,13 +1,19 @@
 <?php
   namespace Seats;
   
+  /**
+   * It specifies the structure to store each seat data with the person who sits on it.
+   * 
+   * @var $people_name Person
+   * -Defines a person
+   */
   class Seat implements SeatInterface {
     public $person_name;
 
     /**
       * Initializing the Seat class data members
       * 
-      * @param $people_name
+      * @param $people_name Person
       * A people class onject hwo sits in that seat 
       * 
       */

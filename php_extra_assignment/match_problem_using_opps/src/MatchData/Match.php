@@ -1,6 +1,15 @@
 <?php
   namespace MatchData;
 
+  /**
+   * It defines the structure of the Match data 
+   * 
+   * @var $team1 Team
+   * -Store the data of team-1
+   * 
+   * @var $team2 Team
+   * -Store the dta of team-2
+   */
   class Match implements MatchInterface {
     public $team1;
     public $team2;
@@ -8,11 +17,11 @@
       /**
       * Initializing the Match member variables
       * 
-      * @param $team1
-      * Contains data of team-1 like players name 
+      * @param $team1 Team
+      * -Contains data of team-1 like players name 
       *
-      * @param $team2
-      * Contains data of team-2 
+      * @param $team2 Team
+      * -Contains data of team-2 
       */
 
     function __construct($team1, $team2) {
@@ -26,11 +35,11 @@
     function gethighestscore($match) {
       
       /**
-       * @var $max
-       * Stores the Highest Run
+       * @var $max int
+       * -Stores the Highest Run 
        * 
-       * @var $max_player_name
-       * Stores the Player name who scored the highest run
+       * @var $max_player_name String
+       * -Stores the Player name who scored the highest run
        */
 
       $max = 0;
