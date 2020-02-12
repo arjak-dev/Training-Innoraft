@@ -1,0 +1,9 @@
+{
+  "autoload": {
+    "psr-4": {
+      "MatchData\\" : "src/MatchData",
+      "PlayerData\\" : "src/PlayerData",
+      "TeamData\\" : "src/TeamData"
+    }
+  }
+}

@@ -1,13 +1,10 @@
 <?php
-  include("College.php");
-  include("Document.php");
-  use CollegeData\College;
-  use Documents\Document;
+  include('./vendor/autoload.php');
 
   $college_id = [273, 276, 277];
   $college_name = ["NSHM", "BBIT", "GNIT"];
   foreach ($college_id as $key => $value){
-    $college[$key] = new college($college_id[$key], $college_name[$key]);
+    $college[$key] = new CollegeData\College($college_id[$key], $college_name[$key]);
   }
   
   $doc_name = ["Result", 
@@ -45,7 +42,7 @@
     0
   ];
   foreach ($doc_name as $key => $value){
-    $doc[$key] = new Document($doc_name[$key], $doc_type[$key], $doc_college[$key], $doc_sent[$key]);
+    $doc[$key] = new Documents\Document($doc_name[$key], $doc_type[$key], $doc_college[$key], $doc_sent[$key]);
   }
 
   $output = $doc[0]->putdoc($college,$doc);

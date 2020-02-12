@@ -1,11 +1,6 @@
 <?php
 
-  include("Student.php");
-  include("Subject.php");
-  include("Marks.php");
-  use Student\StudentData;
-  use Subject\SubjectData;
-  use Marks\StudentMarks;
+  include("./vendor/autoload.php");
   
   //initializing Student Marks Data Input 
   $marks = [
@@ -15,7 +10,7 @@
     ['MT'=>50, 'CM'=>30]
   ];
   foreach ($marks as $key => $value){
-    $marks[$key] = new StudentMarks($marks[$key]);
+    $marks[$key] = new Student\Marks($marks[$key]);
   }
   
   
@@ -45,7 +40,7 @@
     9
   ];
   foreach ($student_id as $key => $value){
-    $student[$key] = new StudentData(
+    $student[$key] = new Student\StudentData (
       $student_id[$key], 
       $student_name[$key], 
       $student_dob[$key], 
@@ -87,7 +82,7 @@ $subject_grade = [
   10
 ];
 foreach ($subject_name as $key => $value){
-  $subject[$key] = new SubjectData(
+  $subject[$key] = new Subject\Subject(
     $value ,
     $subject_code[$key], 
     $subject_min_marks[$key], 

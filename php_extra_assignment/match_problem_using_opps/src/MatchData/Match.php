@@ -1,6 +1,7 @@
 <?php
-namespace Match{
-  class Match {
+  namespace MatchData;
+
+  class Match implements MatchInterface {
     public $team1;
     public $team2;
 
@@ -20,14 +21,8 @@ namespace Match{
     }
 
     /**
-     * Get the highest Scorer of the Tournamnet
-     * 
-     * @param $match
-     * An array contains the details of each match 
-     * 
-     * Prints : Highest Scorer Player Name with the run  
+     * @inheritDoc
      */
-
     function gethighestscore($match) {
       
       /**
@@ -57,16 +52,8 @@ namespace Match{
     }
 
     /**
-     * Get the total team score 
-     * 
-     * @param $team
-     * Contains team playing in each match that is 2 teams 
-     * 
-     * @return
-     * An Associative array of team name and total score 
-     * 
+     * @inheritDoc
      */
-
     function gettotalteamScore($team) {
       
       /**
@@ -89,17 +76,9 @@ namespace Match{
     }
 
     /**
-     * Get the Team which own the tournament
-     * 
-     * @param $match
-     * An array contains the details of each match
-     * 
-     * Prints: 
-     * The Winner team and the Run scored by them  
+     *@inheritDoc 
      */
-
     function getournamentwinner($match) {
-      
       /**
        * @var $max
        * Store the score of the winner team 
@@ -107,7 +86,6 @@ namespace Match{
        * @var $team_name
        * Stores the Winner team name 
        */
-
       $max = 0;
       $team_name = "";
       foreach ($match as $key => $value) {
@@ -128,17 +106,9 @@ namespace Match{
     }
 
     /**
-     * Get the Maximum Scoring match (Score of team-1 + Score of team-2)
-     * 
-     * @param $match
-     * An array contains the details of each match
-     * 
-     * Print:
-     * The name of the maximum scring match with the total run scored in that match 
+     * @inheritDoc
      */
-
     function getmaximumscore($match){
-      
       /**
        * @var $max
        * Stoes the Highest total score in the match
@@ -146,7 +116,6 @@ namespace Match{
        * @var $maximum_scoring_match
        * Store the name of Maximum scoring match 
        */
-
       $max = 0;
       $maximum_scoring_match = "";
       foreach ($match as $key => $value){
@@ -167,5 +136,4 @@ namespace Match{
       echo "</h2>";
     }
 
-}
-    }
+  }

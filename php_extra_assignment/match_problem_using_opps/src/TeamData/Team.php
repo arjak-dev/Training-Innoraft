@@ -1,7 +1,7 @@
 <?php
-  namespace Team{
+  namespace TeamData;
     
-    class Team {
+  class Team {
     public $name;
     public $team;
 
@@ -22,4 +22,3 @@
 
   }
 
-}

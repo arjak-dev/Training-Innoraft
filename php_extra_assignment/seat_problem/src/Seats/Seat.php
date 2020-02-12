@@ -1,6 +1,7 @@
 <?php
-namespace Seat {
-  class Seat {
+  namespace Seats;
+  
+  class Seat implements SeatInterface {
     public $person_name;
 
     /**
@@ -15,18 +16,8 @@ namespace Seat {
     }
 
     /**
-      * Check there is any faulty sitting arrangement or not 
-      * 
-      * @param $seat 
-      * Array which contains the sitting arrangement 
-      * 
-      * @return
-      * If there is no falty seats the retirn the seat array
-      * Otherwise transfers the control to the arrange_seat() 
-      * which returns the correct sitting arrangement and then
-      * send the correct sitting arrangement 
-      * 
-      */
+     * {@inheritdoc}
+     */
 
     function check_seat_arrangement($seat) {
       $i =1 ;
@@ -47,20 +38,10 @@ namespace Seat {
         return $seat;
       }
     }
-
+    
     /**
-      * Arrange the falty sitiing arrangement
-      * 
-      * @param $seat
-      * Array which contains the sitting arrangement with falt
-      * 
-      * @param $temp
-      * The person needs to be replaced
-      * 
-      * @return
-      * Return the correct sitting arrangement     
-      */
-
+     * @inheritDoc
+     */
     function arrange_seat($seat, $temp) {
         $temp2 = [];
         $j = 1;
@@ -87,4 +68,3 @@ namespace Seat {
 
   }
 
-}

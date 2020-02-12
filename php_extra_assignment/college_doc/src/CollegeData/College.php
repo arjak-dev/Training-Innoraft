@@ -1,6 +1,6 @@
 <?php
 
-namespace CollegeData {
+namespace CollegeData;
   
   class College {
     public $college_id;
@@ -23,5 +23,3 @@ namespace CollegeData {
     }
 
   }
-
-}

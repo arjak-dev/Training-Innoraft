@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "CollegeData\\" : "src/CollegeData",
+      "Documents\\" : "src/Documents"
+    }   
+  }
+}

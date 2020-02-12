@@ -1,8 +1,7 @@
 <?php
+  namespace Documents;
 
-namespace Documents { 
-
-  class Document { 
+  class Document implements DocumentInterface { 
     public $doc_name;
     public $doc_type;
     public $doc_college;
@@ -33,19 +32,9 @@ namespace Documents {
     }
 
     /**
-     * Send Documents to collge.
-     * 
-     * @param $college
-     * Array contains data of colleges
-     * 
-     * @param $doc
-     * Array contains all the documents
-     * 
-     * @return 
-     * College Data with all the documents send and adds a status that a document is send 
-     * successfully or not. 
+     * @inheritDoc
      */
-
+    
     function putdoc($college , $doc){
       foreach ($doc as $key => $value) {
         if ($value->doc_sent == 1) {
@@ -71,4 +60,4 @@ namespace Documents {
 
   }
 
-}
+ 

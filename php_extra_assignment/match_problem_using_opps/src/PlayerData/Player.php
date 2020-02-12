@@ -1,7 +1,7 @@
 <?php
-  namespace Player{
+  namespace PlayerData;
 
-    class Player {
+  class Player {
     public $name;
     public $run_scored;
 
@@ -22,4 +22,4 @@
 
   }
 
-}
+

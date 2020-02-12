@@ -1,7 +1,7 @@
 <?php
-namespace Marks {
-
-  class StudentMarks{
+  namespace Student;
+  
+  class Marks {
     public $subject_marks;
 
     /**
@@ -10,11 +10,9 @@ namespace Marks {
      * @param $subject_marks 
      * Marks scored by a student  
      */
-    
+
     function __construct($subject_marks){
-      $this->subject_marks = $subject_marks;
+        $this->subject_marks = $subject_marks;
     }
 
   }
-
-}

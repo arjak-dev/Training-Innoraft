@@ -1,11 +1,6 @@
 <?php
   
-  include("Match.php");
-  include("Team.php");
-  include("Player.php");
-  use Match\Match;
-  use Team\Team;
-  use Player\Player;
+  include("./vendor/autoload.php");
   
   //Initializing Players
   $player_name = [
@@ -29,10 +24,10 @@
     54
   ];
   foreach ($player_name as $key => $value){
-    $players[$key] = new Player($value, $player_score[$key]);
+    $players[$key] = new PlayerData\Player($value, $player_score[$key]);
   }
   
-
+  use TeamData\Team as Team;
   //Initializing Teams
   $team = [
     new Team([$players[0], $players[1]], "w"),
@@ -41,6 +36,7 @@
     new Team([$players[6], $players[7]], "z"),
   ];
 
+  use MatchData\Match as Match;
   //Initializing matches
 
   $match = [
