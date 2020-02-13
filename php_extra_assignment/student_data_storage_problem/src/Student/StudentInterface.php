@@ -1,5 +1,6 @@
 <?php
   namespace Student;
+  
   /**
    * Defines the function of the student Student class.
    * 

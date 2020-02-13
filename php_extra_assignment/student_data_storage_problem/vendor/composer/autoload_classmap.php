@@ -10,4 +10,5 @@ return array(
     'Student\\StudentData' => $baseDir . '/src/Student/StudentData.php',
     'Student\\StudentInterface' => $baseDir . '/src/Student/StudentInterface.php',
     'Subject\\Subject' => $baseDir . '/src/Subject/Subject.php',
+    'Subject\\subjectInterface' => $baseDir . '/src/Subject/SubjectInterface.php',
 );

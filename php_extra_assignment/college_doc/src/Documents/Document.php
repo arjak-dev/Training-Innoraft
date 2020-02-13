@@ -19,7 +19,6 @@
    * @var $doc_sent_status String 
    * -It get set with respect to the doc_sent
    **/
-
   class Document implements DocumentInterface { 
     public $doc_name;
     public $doc_type;

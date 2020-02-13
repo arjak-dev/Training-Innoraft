@@ -16,7 +16,6 @@
      * @param $subject_marks Associative Array
      * Marks scored by a student  
      */
-
     function __construct($subject_marks){
         $this->subject_marks = $subject_marks;
     }

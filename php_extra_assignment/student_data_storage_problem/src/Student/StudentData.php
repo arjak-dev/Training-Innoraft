@@ -19,9 +19,6 @@ namespace Student;
  * 
  * @var $marks Marks
  * -Marks of the student 
- * 
- * 
- *  
  */
 class StudentData implements StudentInterface {
   public $id;
@@ -49,7 +46,6 @@ class StudentData implements StudentInterface {
    * @param $marks
    * marks scored by a student 
    */
-
   function __construct($id, $name, $dob, $grade, $marks) {
     $this->id = $id;
     $this->name = $name;
@@ -68,6 +64,7 @@ class StudentData implements StudentInterface {
       }
     }
   }
+
   /**
    * @inheritDoc
    */
@@ -82,6 +79,7 @@ class StudentData implements StudentInterface {
     $student_marks = $this->getstudentmarksdetails($student, $student_id);
     //Get the subject details as per the grade
     $subject_details = $subject[0]->getsubjectdetails($subject, $student[$i]->grade);
+
     /**
      * @var $pass_subject
      * counts the no. of subject that the student has passed
@@ -92,18 +90,19 @@ class StudentData implements StudentInterface {
         $pass_subject +=1;
       } 
     }
+
     /**
      * @var $percentage
      * Percentage of the subject passed from the total subject
      */
     $percentage = ($pass_subject/count($subject_details))*100;
-    if($percentage>=40){
-      if($student[$i]->id == $student_id){
+    if ($percentage>=40) {
+      if ($student[$i]->id == $student_id) {
         $student[$i]->student_status = "PASS";
       }
     }
-    else{
-      if($student[$i]->id == $student_id){
+    else {
+      if($student[$i]->id == $student_id) {
         $student[$i]->student_status = "FAIL";
       }
     }
@@ -128,11 +127,13 @@ class StudentData implements StudentInterface {
     echo "<td>".date('d/m/y',$student->dob)."</td>";
     echo "<td>$student->grade</td>";
     echo "<td>";
-    for($i=0;$i<count($subject_details);$i++){
-      if($student_marks[$subject_details[$i][1]])
+    for ($i=0; $i<count($subject_details); $i++) {
+      if ($student_marks[$subject_details[$i][1]]) {
         echo $subject_details[$i][1]."(".$student_marks[$subject_details[$i][1]].",".$subject_details[$i][2].")";
-      else
+      }
+      else {
         echo $subject_details[$i][1]."- NOT APPEARED";
+      }
       echo "<br>";
     }
     echo "</td>";

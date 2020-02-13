@@ -1,7 +1,11 @@
 <?php
   namespace Subject;
 
+  /**
+   * Defines the function of the Subject class.
+   */
   interface subjectInterface {
+    
     /**
    * Get subject details for a particualar grade
    * 

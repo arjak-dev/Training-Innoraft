@@ -12,8 +12,7 @@
   foreach ($marks as $key => $value){
     $marks[$key] = new Student\Marks($marks[$key]);
   }
-  
-  
+
   //Initializing student data
   $student_id = [
     'st1',
@@ -66,31 +65,30 @@
     "CM"
   ];
 
-$subject_min_marks = [
-  30,
-  40,
-  30,
-  30
-];
+  $subject_min_marks = [
+    30,
+    40,
+    30,
+    30
+  ];
 
-$subject_grade = [
-  12,
-  12,
-  12,
-  10,
-  11,
-  10
-];
-foreach ($subject_name as $key => $value){
-  $subject[$key] = new Subject\Subject(
-    $value ,
-    $subject_code[$key], 
-    $subject_min_marks[$key], 
-    $subject_grade[$key]
-  );
-}
+  $subject_grade = [
+    12,
+    12,
+    12,
+    10,
+    11,
+    10
+  ];
+  foreach ($subject_name as $key => $value){
+    $subject[$key] = new Subject\Subject(
+      $value ,
+      $subject_code[$key], 
+      $subject_min_marks[$key], 
+      $subject_grade[$key]
+    );
+  }
 
   //Print the mark sheet of a student with id 'st2'
   $student[0]->getstudentstatus('st2',$student,$subject);
-   
-?>
+    

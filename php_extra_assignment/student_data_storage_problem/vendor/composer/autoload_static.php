@@ -30,6 +30,7 @@ class ComposerStaticInit9f3bb3a2fca257a1ab71ea3b38660397
         'Student\\StudentData' => __DIR__ . '/../..' . '/src/Student/StudentData.php',
         'Student\\StudentInterface' => __DIR__ . '/../..' . '/src/Student/StudentInterface.php',
         'Subject\\Subject' => __DIR__ . '/../..' . '/src/Subject/Subject.php',
+        'Subject\\subjectInterface' => __DIR__ . '/../..' . '/src/Subject/SubjectInterface.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

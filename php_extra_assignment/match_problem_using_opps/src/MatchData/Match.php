@@ -14,16 +14,15 @@
     public $team1;
     public $team2;
 
-      /**
-      * Initializing the Match member variables
-      * 
-      * @param $team1 Team
-      * -Contains data of team-1 like players name 
-      *
-      * @param $team2 Team
-      * -Contains data of team-2 
-      */
-
+    /**
+    * Initializing the Match member variables
+    * 
+    * @param $team1 Team
+    * -Contains data of team-1 like players name 
+    *
+    * @param $team2 Team
+    * -Contains data of team-2 
+    */
     function __construct($team1, $team2) {
       $this->team1 = $team1;
       $this->team2 = $team2; 
@@ -41,7 +40,6 @@
        * @var $max_player_name String
        * -Stores the Player name who scored the highest run
        */
-
       $max = 0;
       $max_player_name = "";
       foreach ($match as $key => $value) {
@@ -72,7 +70,6 @@
        * @var $sum
        * Use to calculate the total score of the team  
        */
-
       $output = [];
       foreach($team as $key => $value) {
         $sum = 0;

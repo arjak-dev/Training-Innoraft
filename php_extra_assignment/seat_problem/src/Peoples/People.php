@@ -23,7 +23,6 @@
       * @param $gender Character
       * Gender of the people
       */
-
     function __construct($name,$gender) {
       $this->name = $name;
       $this->gender = $gender;

@@ -1,12 +1,14 @@
 <?php
   include('./vendor/autoload.php');
 
+  //Storing college Data
   $college_id = [273, 276, 277];
   $college_name = ["NSHM", "BBIT", "GNIT"];
   foreach ($college_id as $key => $value){
     $college[$key] = new CollegeData\College($college_id[$key], $college_name[$key]);
   }
   
+  //Storing Document Data
   $doc_name = ["Result", 
     "Result", 
     "Result", 

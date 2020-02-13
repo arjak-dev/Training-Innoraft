@@ -24,7 +24,6 @@
     /**
      * {@inheritdoc}
      */
-
     function check_seat_arrangement($seat) {
       $i =1 ;
       $temp = [];

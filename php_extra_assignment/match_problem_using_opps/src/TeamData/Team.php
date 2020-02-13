@@ -15,15 +15,14 @@
     public $team;
 
     /**
-     * Initializing Team member variables
-     *
-     * @param $players Player
-     * Array containing player in the team
-     *
-     * @param $name String
-     * Name of the team
-     */
-
+    * Initializing Team member variables
+    *
+    * @param $players Player
+    * Array containing player in the team
+    *
+    * @param $name String
+    * Name of the team
+    */
     function __construct($players, $name) {
       $this->team = $players;
       $this->name = $name;

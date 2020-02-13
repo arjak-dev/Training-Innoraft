@@ -6,6 +6,7 @@
    * 
    */
   interface DocumentInterface{
+
     /**
      * Send Documents to collge.
      * 
@@ -19,7 +20,6 @@
      * College Data with all the documents send and adds a status that a document is send 
      * successfully or not. 
      */
-
     public function putdoc($college , $doc);
     
   }
