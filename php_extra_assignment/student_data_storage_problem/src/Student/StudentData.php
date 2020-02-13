@@ -114,33 +114,34 @@ class StudentData implements StudentInterface {
    * @inheritDoc
    */
   function printstudentdetails($student,$subject_details,$student_marks){
-    echo "<table border='1px solid'>";
-    echo "<tr>";
-    echo "<td>NAME</td>";
-    echo "<td>DOB</td>";
-    echo "<td>Grade</td>";
-    echo "<td>Subject</td>";
-    echo "<td>Result</td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<td>$student->name</td>";
-    echo "<td>".date('d/m/y',$student->dob)."</td>";
-    echo "<td>$student->grade</td>";
-    echo "<td>";
-    for ($i=0; $i<count($subject_details); $i++) {
-      if ($student_marks[$subject_details[$i][1]]) {
-        echo $subject_details[$i][1]."(".$student_marks[$subject_details[$i][1]].",".$subject_details[$i][2].")";
+    echo "<table border='1px solid' class = 'table'>";
+      echo "<thead class = 'thead-dark'>";
+        echo "<tr>";
+        echo "<th scope = 'col'>NAME</th>";
+        echo "<th scope = 'col'>DOB</th>";
+        echo "<th scope = 'col'>Grade</th>";
+        echo "<th scope = 'col'>Subject</th>";
+        echo "<th scope = 'col'>Result</th>";
+        echo "</tr>";
+        echo "</thead>";
+      echo "<tr>";
+      echo "<td>$student->name</td>";
+      echo "<td>".date('d/m/y',$student->dob)."</td>";
+      echo "<td>$student->grade</td>";
+      echo "<td>";
+      for ($i=0; $i<count($subject_details); $i++) {
+        if ($student_marks[$subject_details[$i][1]]) {
+          echo $subject_details[$i][1]."(".$student_marks[$subject_details[$i][1]].",".$subject_details[$i][2].")";
+        }
+        else {
+          echo $subject_details[$i][1]."- NOT APPEARED";
+        }
+        echo "<br>";
       }
-      else {
-        echo $subject_details[$i][1]."- NOT APPEARED";
-      }
-      echo "<br>";
-    }
-    echo "</td>";
-    echo "<td>$student->student_status</td>";
-    echo "</tr>";
+      echo "</td>";
+      echo "<td>$student->student_status</td>";
+      echo "</tr>";
     echo "</table>";
   }
-
 }
 

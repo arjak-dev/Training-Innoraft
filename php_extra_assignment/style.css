@@ -1,0 +1,10 @@
+.container-fluid{
+    padding: 0px;
+    margin: 0px auto;
+}
+.form-group{
+    padding: 30px;
+}
+.form-control{
+    margin-bottom: 20px; 
+}

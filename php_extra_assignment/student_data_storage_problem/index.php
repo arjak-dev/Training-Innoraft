@@ -1,94 +1,75 @@
 <?php
 
   include("./vendor/autoload.php");
+
+  //getting the file content 
+  $file = file_get_contents ("data.json");
+  $data = json_decode ($file, true);
   
-  //initializing Student Marks Data Input 
-  $marks = [
-    ['PH'=>20, 'CM'=>40],
-    ['PH'=>30, 'MT'=>70],
-    ['EN'=>50],
-    ['MT'=>50, 'CM'=>30]
-  ];
-  foreach ($marks as $key => $value){
-    $marks[$key] = new Student\Marks($marks[$key]);
+  $i=0 ;
+  // initializing Student Marks Data Input 
+  foreach ($data['marks'] as $key => $value) {
+    $marks[$i] = new Student\Marks($value);
+    $i +=1;
   }
 
+  $i=0;
   //Initializing student data
-  $student_id = [
-    'st1',
-    'st2',
-    'st3',
-    'st4',
-  ];
-  $student_name = [
-    'John',
-    'Arjak',
-    'Kunal',
-    'Maity'
-  ];
-  $student_dob = [
-    mktime(0, 0, 0, 12, 20, 1998),
-    mktime(0, 0, 0, 5, 10, 1998),
-    mktime(0, 0, 0, 12, 20, 1998),
-    mktime(0, 0, 0, 10, 20, 1998)
-  ];
-  $student_grade = [
-    12,
-    12,
-    11,
-    9
-  ];
-  foreach ($student_id as $key => $value){
-    $student[$key] = new Student\StudentData (
-      $student_id[$key], 
-      $student_name[$key], 
-      $student_dob[$key], 
-      $student_grade[$key], 
-      $marks[$key]);
+  foreach ($data['student'] as $key => $value){
+    $student[$i]= new Student\StudentData ($value['id'], $value['name'], $value['DOB'], $value['grade'], $marks[$i]);
+     $i += 1;
   }
 
-  //Initializing Subject data input  
-  $subject_name = [
-    "physics",
-    "Maths",
-    "English",
-    "Computer",
-    "Maths",
-    "Computer"
-  ];
-  $subject_code = [
-    "PH",
-    "MT",
-    "EN",
-    "CM",
-    "MT",
-    "CM"
-  ];
-
-  $subject_min_marks = [
-    30,
-    40,
-    30,
-    30
-  ];
-
-  $subject_grade = [
-    12,
-    12,
-    12,
-    10,
-    11,
-    10
-  ];
-  foreach ($subject_name as $key => $value){
-    $subject[$key] = new Subject\Subject(
-      $value ,
-      $subject_code[$key], 
-      $subject_min_marks[$key], 
-      $subject_grade[$key]
-    );
-  }
-
-  //Print the mark sheet of a student with id 'st2'
-  $student[0]->getstudentstatus('st2',$student,$subject);
+  $i = 0;
+  //Initializing Subject data input 
+  foreach ($data['subject'] as $key => $value){
+    $subject[$i] = new Subject\Subject ($value['name'], $value['code'], $value['minmum_marks_to_pass'], $value['grade']);
+    $i += 1;
+  } 
+  //print_R($student);
+  ?>
+  <!Doctype Html>
+  <html lang="en">
+    <head>
+      <title>
+        Marksheet
+      </title>
+      <link rel = "stylesheet" href = "/Training-Innoraft/php_extra_assignment/bootstrap.css">
+      <link rel = "stylesheet" href = "/Training-Innoraft/php_extra_assignment/style.css">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-light bg-dark ">
+          <h1 class="text-white">Student Marksheet:</h1>
+        </nav>
+        </br>
+        </br> 
+        <form action="index.php" method="POST">
+          <div class="form-group">
+            <label>Enter Student Id:</label>
+            <input type="text" class ="form-control" name="id" required>
+            <input type="submit" class="btn btn-primary" name="submit">
+            <a href="Admin" class="btn btn-primary">Admin</a>
+          </div>
+        </form>
+        </br>
+        </br>
+        <div class="col-lg">
+          
+          <?php
+            if(isset($_POST['submit'])){
+              $id = $_POST["id"];
+              //Print the mark sheet of a student with id 'st2'
+              if($id){
+                echo "<lable>Result</lable>";
+                $student[0]->getstudentstatus($id, $student,$subject);
+              }
+            }  
+          ?>
+        </div>
+      </div>
+    </body>
+  </html>
+  
+  
     

@@ -1,0 +1,84 @@
+{
+    "student" : { 
+        "student-1" : {
+            "id" : "st1",
+            "name" : "Arjak",
+            "DOB" : "20-12-1998",
+            "grade" : "12"
+        },
+        "student-2" : {
+            "id" : "st2",
+            "name" : "Sayantan",
+            "DOB" : "20-10-1998",
+            "grade" : "12"
+        },
+        "student-3" : {
+            "id" : "st3",
+            "name" : "Kousik",
+            "DOB" : "10-12-1998",
+            "grade" : "10"
+        },
+        "Student-4" : {
+            "id" : "st4",
+            "name" : "Aritra",
+            "DOB" : "12-05-1998",
+            "grade" : "11"
+        }
+    },
+    "marks" : {
+        "student-1" : {
+            "PH" : "20", 
+            "CM" : "40"
+        },
+        "student-2" : {
+            "PH" : "30",
+            "MT" : "70"
+        },
+        "Student-3" : {
+            "MT" : "50",
+            "CM" : "30"
+        },
+        "student-4" : {
+            "MT" : "50",
+            "CM" : "30"
+        }
+    },
+    "subject" : {
+        "subject-1" : {
+            "name" : "physics",
+            "code" : "PH",
+            "grade" : "12",
+            "minmum_marks_to_pass" : "30"
+        },
+        "subject-2" : {
+            "name" : "Maths",
+            "code" : "MT",
+            "grade" : "12",
+            "minmum_marks_to_pass" : "40"
+        },
+        "subject-3" : {
+            "name" : "English",
+            "code" : "EN",
+            "grade" : "12",
+            "minmum_marks_to_pass" : "30"
+        },
+        "subject-4" : {
+            "name" : "Computer",
+            "code" : "CM",
+            "grade" : "10",
+            "minmum_marks_to_pass" : "30" 
+        },
+        "subject-5" : {
+            "name" : "Maths",
+            "code" : "MT",
+            "grade" : "11",
+            "minmum_marks_to_pass" : "30"
+        },
+        "subject-6" : {
+            "name" : "Computer",
+            "code" : "MT",
+            "grade" : "10",
+            "minmum_marks_to_pass" : "40"
+        }    
+    }
+}
