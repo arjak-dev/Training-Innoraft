@@ -8,6 +8,7 @@
     ['pd' => 2, 'sp' => 75, 'sd' => '3/02/2020', 'ct' => 'C1'],
 	  ['pd' => 2, 'sp' => 65, 'sd' => '7/02/2020', 'ct' => 'C1'],
     ['pd' => 4, 'sp' => 190, 'sd' => '8/02/2020', 'ct' => 'C2'],
+    ['pd' => 5, 'sp' => 190, 'sd' => '8/02/2020', 'ct' => 'C3']
   ];
   $i = 0;
   foreach ($array as $key => $value){
@@ -16,4 +17,6 @@
   }
  
   $sortedproducts = $products[0]->productsort($products);
-  print_r(json_encode($products[0]->totalsellingprice($sortedproducts)));
+  $product_tsp = $products[0]->totalsellingprice($sortedproducts);
+  $product_ct = ($products[0]->putcateory($product_tsp));
+  $products[0]->putproductkey($product_ct);

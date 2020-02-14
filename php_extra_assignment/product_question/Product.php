@@ -86,6 +86,72 @@
       return $products;
     }
 
-    
+    /**
+     * count the no. of products in each category
+     * 
+     * @param $products Product-Array
+     * Array contains the details of the products
+     * 
+     * @return $product_count Array of integers 
+     * Category-1 is the index of the array
+     * And the hold the value of how many producst are there
+     */
+    function categorycount($products) {
+      $count=1;
+      $product_count = []; 
+       foreach ($products as $key => $value) {
+         if ($value->category == $products[$key + 1]->category){
+            $count +=1;
+        } else {
+          if($count == 1){
+            $count = 0;
+          }
+          array_push($product_count, $count);
+          $count =1;
+        }
+       }
+      return $product_count;
+    }
 
+    /**
+     * Set the category accouding to how many products are available under that category 
+     * 
+     * @param $products Product-Array 
+     * Array contains the details of the product 
+     * 
+     * @return Product Array with setting the category
+     */
+    function putcateory($products) {
+      $product_count = [];
+      $product_count = $this->categorycount($products);
+     // print_r($product_count); 
+      foreach ($products as $key => $value) {
+        $ct = substr($value->category, 1);
+        if(array_key_exists($ct-1,$product_count)){
+          if ($product_count[$ct-1] != 0){
+            $value->category .= "-P".$value->product_id;
+            $product_count[$ct-1] -=1; 
+          }
+        }
+      }
+     return $products;
+    }
+
+    /**
+     * Changing the array key according to the category
+     * 
+     * @param $products Product-Array
+     * Array containing the product details
+     * 
+     * @return $products Product-Array
+     * The final array which have the key as the category 
+     */
+    function putproductkey($products) {
+      foreach ($products as $key =>$value) {
+         $products[$value->category] = $products[$key];
+         unset($products[$key]);
+      }
+      print_r(json_encode($products));
+    }
+    
   }
