@@ -1,0 +1,59 @@
+.center_div {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* border: 2px solid; */
+    border-radius: 5px;
+    padding: 20px;
+    opacity: 80%;
+}
+
+.bg_div{
+    width: 100%;
+    height: 100vh;
+    background-image: url(login-background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+h3{
+    text-align: center;
+}
+.button-position{
+    width: 100%;
+}
+.reg_bg_div{
+    position: relative;
+    width: 100%;
+     /* height: 100vh auto; */
+    background-image: url(login-background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.reg_div{
+    /* margin: 10px; */
+    width: 500px;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 80%;
+    padding: 20px;
+    /* position: absolute; */
+    
+}
+
+.logo-color{
+    color: White;
+}
+
+li {
+    display: inline-block;
+}
+ul.display-ul {
+    margin: 0px;
+}
