@@ -5,6 +5,8 @@
     $password = $_POST['password'];
     $status = (new User('a','a','a','a','a','a'))->checkuser($user_name, $password);
     if($status){
+      session_start();
+      $_SESSION['code'] = $status; 
       header('location: ../Blog');
     } else {
       $error = "login failed";
@@ -24,8 +26,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-  <div class="bg_div">
-    <div class="container center_div card bg-dark text-white">
+  <div class="bg_div container ">
+    <div class="center_div card bg-dark text-white">
       <form action="index.php" method="POST">
         <h3>
           Login

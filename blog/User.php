@@ -53,16 +53,21 @@
       $sql = "select * from user where user_name = '$user_name' and password = '$password'";
       if($result = $conn->query($sql)) {
         // echo "Query run successfully";
-      }
-      // print_r($result);
-      if (mysqli_num_rows($result)) {
-        $conn->close();  
-        return true;
+        $row = $result->fetch_assoc();
+        
+        if (mysqli_num_rows($result)) {
+          $conn->close();  
+          return $row['user_id'];;
+        } else {
+          $conn->close();
+          return false;
+        }
       } else {
-        $conn->close();
-        return false;
+        echo "Database Problem please try after some time";
       }
      
     }
+
+    
    
   }
