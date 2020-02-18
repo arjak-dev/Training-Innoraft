@@ -5,19 +5,11 @@ create database blog_db;
 use blog_db;
 
 -- create user table 
-create table user (user_name char(20),first_name char(20), last_name char(20), email_id char(20), phone_no int);
--- adding password feild
-alter table user add column password char(20);
-
--- add primary key
-alter table user add primary key(user_name,password);
+create table user (user_id int auto_incement primary key, user_name char(20),first_name char(20), last_name char(20),password char(20), email_id char(40), phone_no char(12));
 
 -- CREATE TABLE BLOG
-create table blog(user_name char(20),blog_title char(40), time timestamp, image char(30));
-
--- ADD PRIMARY KEY
- alter table blog add primary key(user_name, blog_title);
+create table blog(user_id int,blog_id int auto_incement primary key, blog_title char(40),blog_body text, time long, image char(30));
 
 -- ADD FOREIGN KEY 
-alter table blog add foreign key(user_name) references user(user_name);
+alter table blog add foreign key(user_id) references user(user_id);
 
