@@ -3,7 +3,7 @@
   if(isset($_GET['q'])){
     $q = $_GET['q'];
   }
-  $blog =new Blog(" "," ");
+  $blog =new Blog(" "," "," ");
   $result = $blog->getblogdetails($q);
   
   if ($result->num_rows) {
@@ -37,10 +37,13 @@
           echo $row['blog_title'];
         ?>
       </h1>
-      <p class="read-body">
-        <?php
+      <?php
+      if ($row['image']) {
+        echo "<img src=".$row['image'].">";
+      }
+      echo "<p class='read-body'>";
           echo $row['blog_body'];
-        ?>
+      ?>
       </p>
     </div>
   </body>

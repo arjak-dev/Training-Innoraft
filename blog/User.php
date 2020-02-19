@@ -58,7 +58,7 @@
       // echo "$password";
       include('connection.php');
       $conn = (new DatabaseConnection())->connection();
-      $sql = "select * from user where user_name = '$user_name' and password = '$password'";
+      $sql = "select * from user where binary user_name = '$user_name' and binary password = '$password'";
       if($result = $conn->query($sql)) {
         // echo "Query run successfully";
         $row = $result->fetch_assoc();

@@ -8,7 +8,7 @@ if (isset($_POST['save'])) {
       $title = addslashes($_POST['title']);
       $body = addslashes($_POST['blog-body']);
       $blog_id = $_GET['q'];
-      $blog = new Blog(" ", " ");
+      $blog = new Blog(" ", " "," ");
       echo "$title";
       echo "$blog_id";
       echo "$body";
