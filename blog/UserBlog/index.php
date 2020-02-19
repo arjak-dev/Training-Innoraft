@@ -8,10 +8,38 @@ include('../Blog.php');
   $title ="";
   $blog_body = "";
   $user_id = $_SESSION['code'];
+  $img = "";
   if (isset($_POST['save'])) {
-    $title = $_POST['title'];
+    $title = addslashes($_POST['title']);
     $blog_body = addslashes($_POST['blog-body']);
-    $blog = new Blog($title, $blog_body);
+    if (isset($_FILES['file'])) {
+      $file = $_FILES["file"];
+      if($file['name'] != NULL){
+        $fileName = $file['name'];
+          $fileTempName = $file['tmp_name'];
+          $fileType = $file['type'];
+          $fileError = $file['error'];
+          $fileExtension = explode('.',$fileName);
+
+          $allowed = array("jpg","jpeg","png");
+          $fileActualExtension = strtolower(end($fileExtension));
+          
+          if(in_array($fileActualExtension,$allowed)){
+            if ($fileError === 0) {
+                $fileNewName = uniqid(rand(),true).".".$fileActualExtension;
+                $fileDestination="../upload/".$fileNewName;
+                move_uploaded_file($fileTempName,$fileDestination);
+                $img = $fileDestination;
+            }
+            } else {
+               $img = ""; 
+            }
+            } else {
+              $img = "";
+            }
+    
+    }
+    $blog = new Blog($title, $blog_body, $img);
     $result = $blog->putdata($user_id,$blog);
   }
  ?>
@@ -41,7 +69,7 @@ include('../Blog.php');
     <div class="container">
       <h3><?php echo "$result"; ?></h3>
       <?php
-        $blog = new Blog("","");
+        $blog = new Blog("", "", "");
         $result = $blog->getuserblog($user_id);
         if (mysqli_num_rows($result)) {
           while ($row = $result->fetch_assoc()) {
@@ -60,7 +88,6 @@ include('../Blog.php');
                   echo "</div>";
                 echo "</div>";
               echo "</a>";  
-            
           }
         } else {
           echo "<h3> No Blogs Present Till Date </h3>";

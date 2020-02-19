@@ -3,7 +3,7 @@
   if (isset($_GET['q'])) {
     $q = $_GET['q'];
   }
-  $blog = new Blog(" ", " ");
+  $blog = new Blog(" ", " "," ");
   $result = $blog->getblogdetails($q);
   $row = $result->fetch_assoc();
 ?>

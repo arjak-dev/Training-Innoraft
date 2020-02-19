@@ -3,11 +3,13 @@ include('connection.php');
   class BLog{
     public $title;
     public $body;
+    public $img;
     public $conn;
-    function __construct($title, $body)
+    function __construct($title, $body, $img)
     {
       $this->title = $title;
       $this->body = $body;
+      $this->img = $img;
       $this->conn = (new DatabaseConnection())->connection();
     }
 
@@ -22,8 +24,8 @@ include('connection.php');
         echo $this->conn->error;
       }
       $time = time();
-      $sql = "insert into blog(user_id,blog_title,blog_body,time) 
-      values('$user_id','$blog->title','$blog->body','$time')";
+      $sql = "insert into blog(user_id, blog_title, blog_body, time, image) 
+      values('$user_id', '$blog->title', '$blog->body', '$time', '$blog->img')";
       if ($this->conn->query($sql)) {
         // echo "Blog Added successfully";
       } else {
@@ -46,7 +48,7 @@ include('connection.php');
       $conn = (new DatabaseConnection())->connection();
       $sql = "select * from blog";
       if ($result = $conn->query($sql)) {
-          return $result;
+        return $result;
       } else {
         return false;
       }
@@ -63,7 +65,7 @@ include('connection.php');
 
     function getblogdetails ($blog_id) {
       $conn = (new DatabaseConnection())->connection();
-      $sql = "select blog_title,blog_body from blog where blog_id = '$blog_id'";
+      $sql = "select blog_title,blog_body,image from blog where blog_id = '$blog_id'";
       if ($result = $conn->query($sql)) {
         return $result;
       } else {

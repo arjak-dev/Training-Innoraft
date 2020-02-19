@@ -48,7 +48,7 @@
     <div class="container">
     <h3 class="read-blog">Read Blogs</h3>
     <?php
-        $blog = new Blog("","");
+        $blog = new Blog("","","");
         $result = $blog->getall();
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
