@@ -32,6 +32,14 @@
     function putdata($user){
       include('connection.php');
       $conn = (new DatabaseConnection())->connection();
+      $sql = "select * from user where user_name = '$user->user_name'";
+      if ($result = $conn->query($sql)) { 
+        if ($result->num_rows > 0) {
+            return "The User Name is already present";
+          }
+      } else {
+        echo $conn->error;
+      }
       $sql = "insert into user(user_name, first_name, last_name, email_id, phone_no, password)
       values('$this->user_name','$this->first_name', '$this->last_name', '$this->email_id', '$this->phone_no', '$this->password')";
       if (!$conn) {

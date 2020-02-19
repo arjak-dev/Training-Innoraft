@@ -30,25 +30,25 @@
   <body>
     <div class="reg_bg_div">
       <div class = "card bg-dark text-white reg_div">
-        <form action="index.php" method="POST">
+        <form action="index.php" method="POST" id="form_call">
           <h3>
-            Registration:
+            Create Account
           </h3>
           Enter your User Name:</br>
-          <input type="text" name = "user_name" class = "form-control" placeholder="User Name" required></br>
+          <input type="text" name = "user_name" class = "form-control" placeholder="User Name" required>
           <lable></lable></br>
           Enter your First name:</br>
-          <input type="text" name = "first_name" class = "form-control" placeholder="First Name " required></br>
-          <label></label></br>
+          <input type="text" id = "fname" name = "first_name" class = "form-control input-sm" placeholder="First Name " required>
+          <label id ="fname_error"></label></br>
           Enter your last Name:</br>
-          <input type="text" name = "last_name" class = "form-control" placeholder="Last Name" required></br>
-          <label></label></br>
+          <input type="text" id = "sname" name = "last_name" class = "form-control input-sm" placeholder="Last Name" required>
+          <label id="sname_error"></label></br>
           Enter your Email id:</br>
-          <input type="text" name = "email_id" class = "form-control" placeholder="Email id" required></br>
-          <label></label></br>
+          <input type="text" name = "email_id" id ="email_input" class = "form-control" placeholder="Email id" required>
+          <label id="email_error"></label></br>
           Enter your Phone no.:</br>
-          <input type="text" name = "phone_no" class = "form-control" placeholder="Phone Number" required></br>
-          <label></label></br>
+          <input type="text" name = "phone_no" class = "form-control" id ="phno" placeholder="Phone Number" required>
+          <label id="ph_no_error"></label></br>
           Create a password:</br>
           <input type="text" name = "password" class = "form-control" placeholder="Password" required></br>
           <label>
@@ -66,5 +66,6 @@
         </form>
       </div>
     </div>
+    <script src = "script.js" ></script>
   </body>
 </html>

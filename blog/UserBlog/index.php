@@ -12,7 +12,7 @@ include('../Blog.php');
     $title = $_POST['title'];
     $blog_body = addslashes($_POST['blog-body']);
     $blog = new Blog($title, $blog_body);
-    $blog->putdata($user_id,$blog);
+    $result = $blog->putdata($user_id,$blog);
   }
  ?>
 <!DOCTYPE html>
@@ -23,17 +23,23 @@ include('../Blog.php');
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
   </head>
   <body>
     <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
-      <a class= "navbar-brand logo-color" href="">Bloggy</a>
+      <a class= "navbar-brand logo-color" href="">Blogify</a>
       <ul class='display-ul'>
         <li>
+        <a href="../Blog" class="btn btn-secondary btn-sm"> Home </a>
           <a href="add_blog.php" class="btn btn-secondary btn-sm"> Add Blogs </a>
+          <a href="../logout.php" class="btn btn-secondary btn-sm"> Logout </a>
         </li>
       </ul>
     </nav>
     <div class="container">
+      <h3><?php echo "$result"; ?></h3>
       <?php
         $blog = new Blog("","");
         $result = $blog->getuserblog($user_id);

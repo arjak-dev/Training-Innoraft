@@ -5,12 +5,14 @@
       echo $_GET['q'];
   }
 if (isset($_POST['save'])) {
-      $title = $_POST['title'];
-      $body = $_POST['blog-body'];
+      $title = addslashes($_POST['title']);
+      $body = addslashes($_POST['blog-body']);
       $blog_id = $_GET['q'];
       $blog = new Blog(" ", " ");
+      echo "$title";
+      echo "$blog_id";
+      echo "$body";
       $blog->updateblog ($blog_id, $title,$body);
+      
       header('location:../UserBlog');
 }
-
-

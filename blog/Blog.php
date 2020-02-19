@@ -12,6 +12,15 @@ include('connection.php');
     }
 
     function putdata($user_id,$blog){
+      $sql = "select * from blog where blog_title = '$blog->title'";
+      
+      if ($result = $this->conn->query($sql)) { 
+        if ($result->num_rows > 0) {
+            return "The title is already present";
+          }
+      } else {
+        echo $this->conn->error;
+      }
       $time = time();
       $sql = "insert into blog(user_id,blog_title,blog_body,time) 
       values('$user_id','$blog->title','$blog->body','$time')";
@@ -64,8 +73,10 @@ include('connection.php');
 
     function updateblog ($blog_id, $title,$body) {
       $conn = (new DatabaseConnection())->connection();
-      $sql = "update blog set blog_title = '$title', blog_body = '$body' where blog_id = $blog_id";
+      $time = time();
+      $sql = "update blog set blog_title = '$title', blog_body = '$body', time = '$time' where blog_id = '$blog_id'";
       $result = $conn->query($sql);
+      return $result;
       $conn->close();
     }
 

@@ -5,10 +5,13 @@
 <html>
   <head>
     <title>
-      Bloggy
+      Blogify
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
   </head>
   <body>
     <?php
@@ -16,7 +19,7 @@
       // session_unset();
       if (isset($_SESSION['code'])){
         echo "<nav class='navbar navbar-expand-mg bg-dark navbar-dark'>";
-          echo "<a class='navbar-brand logo-color' href=''>Bloggy</a>";
+          echo "<a class='navbar-brand logo-color' href=''>Blogify</a>";
           echo "<ul class='display-ul'>";
             echo "<li class='nav-item'>";
               echo "<a class='btn btn-primary btn-sm' href='../UserBlog'>My Blog</a>";
@@ -26,23 +29,28 @@
             echo "</li>";
         echo "</ul></nav>";
       } else {
-        echo "<nav class='navbar navbar-expand-mg bg-dark navbar-dark fixed-top'>";
-        echo "<a class='navbar-brand logo-color' href=''>Bloggy</a>";
+        echo "<nav class='navbar navbar-expand-mg bg-dark navbar-dark'>";
+        echo "<a class='logo-color' href=''>Blogify</a>";
         echo "<ul class='display-ul'>";
           echo "<li class='nav-item'>";
-            echo "<a class='btn btn-primary btn-sm' href='../Login'>Login</a>";
+            echo "<a class='btn btn-primary btn-sm' href='../Login'>Sign in</a>";
           echo "</li>";
           echo "<li class='nav-item'>";
-            echo "<a class='btn btn-secondary btn-sm' href='../Registration'>Register</a>";
+            echo "<a class='btn btn-secondary btn-sm' href='../Registration'>Sign up</a>";
           echo "</li>";
         echo "</ul></nav>";
       }
     ?>
+    <div class="banner">
+      <h1>Convert your thinking
+        <br> into blogs</h1>
+    </div>
     <div class="container">
+    <h3 class="read-blog">Read Blogs</h3>
     <?php
         $blog = new Blog("","");
         $result = $blog->getall();
-        if (mysqli_num_rows($result)) {
+        if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
             $user_name = $blog->getusername($row['user_id']);
             $title = $row['blog_title'];

@@ -23,9 +23,12 @@
 }
 h3{
     text-align: center;
+    color: mintcream;
+    font-family: ;
 }
 .button-position{
     width: 100%;
+    font-family: 'Amiko';
 }
 .reg_bg_div{
     position: relative;
@@ -33,7 +36,7 @@ h3{
      /* height: 100vh auto; */
     background-image: url(login-background.png);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -50,7 +53,9 @@ h3{
 }
 
 .logo-color{
-    color: White;
+    color :lightgray;
+    font-family: 'Autour One';
+    font-size: 22px;
 }
 
 li {
@@ -71,6 +76,7 @@ ul.display-ul {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
     position: fixed;
+    background-color: #35383c;
 }
 
 .card-margin {
@@ -98,4 +104,60 @@ ul.display-ul {
 }
 h1 {
     text-align: center;
+}
+.banner {
+    width: 100%;
+    height : 92vh;
+    background-image: url(./login-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.banner h1 {
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    font-family: 'Sofia';
+   
+}
+
+a {
+    font-family: 'Amiko';
+}
+
+ body{ 
+    background-color: #1c2225;
+}
+
+input {
+    color : black;
+}
+
+label {
+    color: floralwhite;
+}
+
+.form-group {
+    color: lightyellow;
+}
+
+.read-heading {
+    color : lightyellow;
+}
+
+.read-body {
+    color : lightyellow;
+}
+
+.read-blog{
+    font-family: 'Amiko';
+}
+
+.logo-color:hover {
+    text-decoration: none;
+    color:white;
 }
