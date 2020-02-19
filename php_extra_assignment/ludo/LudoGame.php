@@ -39,7 +39,7 @@
           $i += 1;
           if( $blue->token[0] >= $dice_input){
             $blue->token[0] -= $dice_input;
-            
+              
           }
           else if ($blue->token[1] >= $dice_input) {
             $blue->token[1] -= $dice_input;
@@ -84,7 +84,7 @@
      * @Winner Associative Array
      * conatain player name with the no. of steps he/she need to win th game 
      */
-    function result($winner){
+    function result($winner) {
       $total_games = count($winner);
       $probability = 0;
       $winner_count[0] = 0;

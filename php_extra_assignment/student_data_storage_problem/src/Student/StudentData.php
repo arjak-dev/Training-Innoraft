@@ -27,7 +27,7 @@ class StudentData implements StudentInterface {
   public $grade;
   public $marks;
   public $student_status;
-  
+          
   /**
    * Initialize the StudentData class member variables
    * 
@@ -85,7 +85,7 @@ class StudentData implements StudentInterface {
      * counts the no. of subject that the student has passed
      */
     $pass_subject = 0;
-    for ($j=0; $j<count($subject_details); $j++){
+    for ($j=0; $j<count($subject_details); $j++) {
       if ($student_marks[$subject_details[$j][1]] >= $subject_details[$j][2]) {
         $pass_subject +=1;
       } 
