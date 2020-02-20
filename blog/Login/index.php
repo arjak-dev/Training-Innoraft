@@ -47,6 +47,7 @@
           ?>
         </lable></br>
         <button name="submit" type="submit" class="btn btn-primary button-position">Submit</button>
+        <a class="btn btn-secondary button-position" href="../Blog">CANCEL</a>
       </form>
     </div>
   </div>

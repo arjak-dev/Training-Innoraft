@@ -110,9 +110,8 @@
     function checkuser ($user_name, $password) {
       $conn = (new DatabaseConnection())->connection();
       $sql = "select * from user where binary user_name = '$user_name' and binary password = '$password'";
-      if($result = $conn->query($sql)) {
+      if ($result = $conn->query($sql)) {
         $row = $result->fetch_assoc();
-        
         if (mysqli_num_rows($result)) {
           $conn->close();  
           return $row['user_id'];;
@@ -122,6 +121,27 @@
         }
       } else {
         echo "Database Problem please try after some time";
+      }
+    }
+
+    function getuserdetails($user_id) {
+      $conn = (new DatabaseConnection())->connection();
+      $sql = "Select * from user where user_id = '$user_id'";
+      if ($result = $conn->query($sql)) {
+        return $result;
+      } else {
+        return false;
+      }
+    }
+
+    function updateuser($user_id, $first_name, $last_name, $email_id, $phone_no, $img) {
+      $conn = (new DatabaseConnection())->connection();
+      $sql = "update user set first_name = '$first_name', last_name = '$last_name', email_id = '$email_id', 
+            phone_no = '$phone_no', image = '$img' where user_id = '$user_id'";
+      if ($result = $conn->query($sql)) {
+        echo "success";
+      } else {
+        print_r( $conn->error);
       }
     }
 

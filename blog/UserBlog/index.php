@@ -5,6 +5,7 @@ include('../Blog.php');
   if(!isset($_SESSION['code'])) {
     header('location: ../Blog');
   }
+  // $blog = "";
   $title ="";
   $blog_body = "";
   $user_id = $_SESSION['code'];
@@ -54,6 +55,9 @@ include('../Blog.php');
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
@@ -62,7 +66,25 @@ include('../Blog.php');
         <li>
         <a href="../Blog" class="btn btn-secondary btn-sm"> Home </a>
           <a href="add_blog.php" class="btn btn-secondary btn-sm"> Add Blogs </a>
-          <a href="../logout.php" class="btn btn-secondary btn-sm"> Logout </a>
+         
+        </li>
+        <li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <?php
+            $user_id = $_SESSION['code'];  
+            $blog = new Blog(" "," "," "," "," "," "); 
+            $row = $blog->getusername($user_id);
+            echo "<img class='profile-img' src='".$row['image']."'>";
+            echo "  ".$row['first_name']." ".$row['last_name']; 
+          ?>
+          </button>
+          
+          <div class="dropdown-menu dropdown-div" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" type="button" href="../View Profile">View Profile</a>
+            <a class="dropdown-item" href="../logout.php" type="button">Logout</a>
+          </div>
+        </div>
         </li>
       </ul>
     </nav>

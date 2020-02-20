@@ -1,5 +1,6 @@
 <?php
   include('../Blog.php');
+  // include('../User.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,9 @@
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <?php
@@ -25,7 +29,19 @@
               echo "<a class='btn btn-primary btn-sm' href='../UserBlog'>My Blog</a>";
             echo "</li>";
             echo "<li class='nav-item'>";
-              echo "<a class='btn btn-secondary btn-sm' href='../logout.php'>Logout</a>";
+              echo "<div class='dropdown'>";
+                echo "<button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+                  $user_id = $_SESSION['code'];  
+                  $blog = new Blog(" "," "," "," "," "," "); 
+                  $row = $blog->getusername($user_id);
+                  echo "<img class='profile-img' src='".$row['image']."'>";
+                  echo "  ".$row['first_name']." ".$row['last_name']; 
+                echo "</button>";
+                echo "<div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>";
+                  echo "<a class='dropdown-item' type='button' href='../View Profile'>View Profile</a>";
+                  echo "<a class='dropdown-item' href='../logout.php' type='button'>Logout</a>";
+                echo "</div>";
+                echo "</div>";
             echo "</li>";
         echo "</ul></nav>";
       } else {

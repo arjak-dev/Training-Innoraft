@@ -54,7 +54,7 @@
       </h1>
       <?php
       if ($row['image']) {
-        echo "<img src=".$row['image'].">";
+        echo "<img class='blog-img' src=".$row['image'].">";
       }
       echo "<p class='read-body'>";
           echo $row['blog_body'];

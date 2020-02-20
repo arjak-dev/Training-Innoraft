@@ -108,11 +108,11 @@ include('connection.php');
      */
     function getusername($user_id) {
       $conn = (new DatabaseConnection())->connection();
-      $sql = "select first_name, last_name from user where user_id = '$user_id'";
+      $sql = "select first_name,last_name,image from user where user_id = '$user_id'";
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
-      $user_name = $row['first_name']." ".$row['last_name'];
-      return $user_name;
+      // $user_name = $row['first_name']." ".$row['last_name'];
+      return $row;
     }
 
     /**
