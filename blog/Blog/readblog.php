@@ -26,8 +26,23 @@
     <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
       <a class= "navbar-brand logo-color" href="">Blogify</a>
       <ul class='display-ul'>
-        <li>
-          <a href="../UserBlog" class="btn btn-secondary btn-sm"> Blogs </a>
+        
+          <?php
+            session_start();
+            if (isset($_SESSION['code'])) {
+              echo "<li>";
+              echo "<a href='../UserBlog' class='btn btn-secondary btn-sm'> My blogs </a>";
+              echo "</li>";
+              echo "<li>";
+              echo "<a href='../Blog' class='btn btn-secondary btn-sm'>Home</a>";
+              echo "</li>";
+            } else {
+              echo "<li>";
+              echo "<a href='../Blog' class='btn btn-secondary btn-sm'>Home</a>";
+              echo "</li>";  
+            }
+          ?>
+          
         </li>
       </ul>
     </nav>

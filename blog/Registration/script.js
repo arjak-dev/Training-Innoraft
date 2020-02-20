@@ -1,4 +1,11 @@
-//first name check
+/**
+ * Check the first of the user 
+ * 
+ * @return 
+ * true if the frist name matches with the naming pattern 
+ * else return false if it not matches the naming pattern 
+ * 
+ */
 function firstname_check(){
     var name_pattern = /^[a-zA-Z]+$/;
 
@@ -11,9 +18,13 @@ function firstname_check(){
     }
 }
 
-
-
-//second name checking 
+/**
+ * Check the second name of the user 
+ * 
+ * @returns
+ * true if second matches with pattern 
+ * else it return false if it not matches with the pattern 
+ */
 function secondname_check(){
  
     var name_pattern = /^[a-zA-Z]+$/;
@@ -25,11 +36,19 @@ function secondname_check(){
         return false;
     }
 }
+
+/**
+ * Chech the email of the user 
+ * 
+ * @retrun 
+ * true if the pattern matches with the string 
+ * else return false if it not matches with the input email id 
+ * 
+ */
 function email_check()
     {
           
             var input = document.getElementById("email_input").value;
-        // var input = "kunal.singh@innoraft.com";
             var pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
             if(input.match(pattern))
             {
@@ -44,7 +63,13 @@ function email_check()
             }
         }
 
-//phone number checking 
+/**
+ * check the phone no. of the user 
+ * 
+ * @return 
+ * true if the input phone no matches with the input string 
+ * false if the phone no. does not matches.
+ */
 document.getElementById('phno').onsubmit = phone_no_check;
 function phone_no_check(){
     var valid_pattern = /^[0-9]{10}$/;

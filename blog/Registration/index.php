@@ -50,7 +50,7 @@
           <input type="text" name = "phone_no" class = "form-control" id ="phno" placeholder="Phone Number" required>
           <label id="ph_no_error"></label></br>
           Create a password:</br>
-          <input type="text" name = "password" class = "form-control" placeholder="Password" required></br>
+          <input type="password" name = "password" class = "form-control" placeholder="Password" required></br>
           <label>
             
           </label>
