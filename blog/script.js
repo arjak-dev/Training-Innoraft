@@ -48,20 +48,20 @@ function secondname_check(){
 function email_check()
     {
           
-            var input = document.getElementById("email_input").value;
-            var pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-            if(input.match(pattern))
-            {
-                console.log("hello");
-                    
-                    return true;
-            }
-            else
-            {
-                    document.getElementById("email_error").innerHTML="invalid email";
-                    return false;
-            }
+        var input = document.getElementById("email_input").value;
+        var pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        if(input.match(pattern))
+        {
+            console.log("hello");
+                
+                return true;
         }
+        else
+        {
+                document.getElementById("email_error").innerHTML="invalid email";
+                return false;
+        }
+    }
 
 /**
  * check the phone no. of the user 

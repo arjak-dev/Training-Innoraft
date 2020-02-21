@@ -14,6 +14,7 @@
     <title>
       Edit blog
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-check-book-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -33,7 +34,7 @@
         </div>
         <div class="form-group">
           Enter the blog body:</br>  
-          <textarea class="form-control" name = "blog-body"><?php
+          <textarea class="blog-body" name = "blog-body"><?php
               echo $row['blog_body'];
             ?>
           </textarea>

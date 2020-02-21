@@ -50,6 +50,7 @@ include('../Blog.php');
     <title>
       My Blogs
     </title>
+     <link rel = "icon" type = "image/png" href = "../icons8-menu-16.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -75,7 +76,11 @@ include('../Blog.php');
             $user_id = $_SESSION['code'];  
             $blog = new Blog(" "," "," "," "," "," "); 
             $row = $blog->getusername($user_id);
+            if ($row['image'] == NULL) {
+            echo "<img class='profile-img' src='../dummy-image.jpg'>";
+            } else {
             echo "<img class='profile-img' src='".$row['image']."'>";
+            }
             echo "  ".$row['first_name']." ".$row['last_name']; 
           ?>
           </button>
@@ -98,18 +103,17 @@ include('../Blog.php');
             $user_name = $blog->getusername($row['user_id']);
             $title = $row['blog_title'];
             $time  = date('m/d/Y H:i', $row['time']);
-            echo "<a href = '../Blog/readblog.php?q=".$row['blog_id']."' class='blog-anchor'>";
               echo "<div class='card card-margin'>";
                 echo "<div class='card-body'>";
                   echo "<h5 class='card-title'>$title</h5>";
-                  echo "<footer class='blockquote-footer'>$user_name 
+                  echo "<footer class='blockquote-footer'>".$user_name['first_name']."
                        <cite title='Source Title'>$time</cite></footer>";
                   echo "<br>";
+                  echo "<a href='../Blog/readblog.php?q=".$row['blog_id']."' class='btm-margin btn btn-success'>Read more</a>";
                   echo "<a href='../Edit?q=".$row['blog_id']."' class='btm-margin btn btn-primary'>Edit</a>";
                   echo "<a href='../Delete?q=".$row['blog_id']."' class='btm-margin btn btn-danger'>Delete</a>";
                   echo "</div>";
                 echo "</div>";
-              echo "</a>";  
           }
         } else {
           echo "<h3> No Blogs Present Till Date </h3>";

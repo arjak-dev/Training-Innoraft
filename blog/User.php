@@ -1,7 +1,7 @@
 <?php
   include('connection.php');
   /**
-   * Defines the Structure of the User class 
+   * Defines te Structure of the User class 
    * 
    * @var user_name String
    * The user name of the user that is used to authenticate
@@ -123,7 +123,11 @@
         echo "Database Problem please try after some time";
       }
     }
-
+    /**
+     * [getuserdetails description]
+     * @param  [type] $user_id [description]
+     * @return [type]          [description]
+     */
     function getuserdetails($user_id) {
       $conn = (new DatabaseConnection())->connection();
       $sql = "Select * from user where user_id = '$user_id'";
@@ -134,15 +138,30 @@
       }
     }
 
+   /**
+    * [updateuser description]
+    * @param  [int] $user_id    ID no. of a user
+    * @param  [String] $first_name First name of the user 
+    * @param  [String] $last_name  Last name of the user
+    * @param  [String] $email_id   Email id of the user
+    * @param  [Long] $phone_no   Phone number of the user
+    * @param  [String] $img      Path of the user profile picture that is stored in the server  
+    */
     function updateuser($user_id, $first_name, $last_name, $email_id, $phone_no, $img) {
       $conn = (new DatabaseConnection())->connection();
-      $sql = "update user set first_name = '$first_name', last_name = '$last_name', email_id = '$email_id', 
-            phone_no = '$phone_no', image = '$img' where user_id = '$user_id'";
-      if ($result = $conn->query($sql)) {
-        echo "success";
-      } else {
-        print_r( $conn->error);
+      if ($img != null) {
+        $sql = "update user set image = '$img' where user_id = '$user_id'";
+        if ($conn->query($sql)) {
+          echo "success";
+        } else {
+          echo $conn-error;
+        }
+
       }
+      $sql = "update user set first_name = '$first_name', last_name = '$last_name', email_id = '$email_id', 
+            phone_no = '$phone_no' where user_id = '$user_id'";
+      $conn->query($sql);
+      $conn->close();
     }
 
   }

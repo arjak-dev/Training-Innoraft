@@ -1,4 +1,13 @@
-
+.head {
+    color: white;
+    font-size: 50px;
+    /* left: 50%; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', ;
+}
 .center_div {
     width: 300px;
     position: absolute;
@@ -69,7 +78,7 @@ ul.display-ul {
 }
 
 .add-blog {
-    width: 70%;
+    width: 90%;
     position: absolute;
     left: 50%;
     top: 20%;
@@ -77,13 +86,14 @@ ul.display-ul {
     /* box-shadow: 10px 10px 5px grey; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
-    position: fixed;
+    /*position: fixed;*/
     background-color: #35383c;
 }
 
 .card-margin {
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #212c31ed;
 }
 
 .btm-margin{
@@ -134,6 +144,7 @@ a {
  
 body{ 
     background-color: #1c2225;
+    /*color: white;*/
 }
 
 input {
@@ -171,7 +182,7 @@ label {
 }
 
 .blog-img {
-    width : 100%;
+    width : 400px;
     height : 60vh;
 }
 .profile-img {
@@ -219,3 +230,22 @@ td{
     transform: translate(-50%);
 }
 
+textarea {
+    height: 30vh;
+}
+
+.blog-body {
+    height: 50vh;
+    width: 100%;
+    border-radius: 5px;
+}
+
+h5 {
+    color: white;   
+}
+
+.pager {
+    color: dimgray;
+    border: none;
+    background-color: #1c2225;
+}

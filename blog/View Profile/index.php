@@ -1,18 +1,5 @@
 <?php
-  include('../User.php');
-  $user = new User(" ", " ", " ", " ", " ", " ");
-  session_start();
-  if (isset($_SESSION['code'])) {
-    $user_id  = $_SESSION['code'];
-  } else {
-    header('location:../Blog');
-  }
-  $result = $user->getuserdetails($user_id);
-  $row = $result->fetch_assoc();
-    $first_name = $row['first_name'];
-    $last_nmae = $row['last_name'];
-    $email_id = $row["email_id"];
-    $phone_no = $row['phone_no'];
+  include('ViewProfile.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,6 +7,7 @@
     <title>
       Profile
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-toggle-on-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <!-- <link href='https://$row =fonts.googleapis.com/css?family=Sofia' rel='stylesheet'> -->
@@ -39,15 +27,17 @@
       </ul>
     </nav>
     <div class = "container Profile">
-      
-     
       <div class="profile-div text-center">
       <?php
-        $user_id = $_SESSION['code'];  
-        $user = new User(" "," "," "," "," "," "," "); 
-        $result = $user->getuserdetails($user_id);
-        $row = $result->fetch_assoc();
-        echo "<img class='profile-image' src='".$row['image']."'>";
+        // $user_id = $_SESSION['code'];  
+        // $user = new User(" "," "," "," "," "," "," "); 
+        // $result = $user->getuserdetails($user_id);
+        // $row = $result->fetch_assoc();
+         if ($row['image'] == NULL) {
+            echo "<img class='profile-image' src='../dummy-image.jpg'>";
+          } else {
+            echo "<img class='profile-image' src='".$row['image']."'>";
+          }
       ?>
         <table>
           <tr>

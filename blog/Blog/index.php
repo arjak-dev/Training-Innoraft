@@ -1,6 +1,16 @@
 <?php
   include('../Blog.php');
   // include('../User.php');
+  $page_no = 0;
+  echo "$count";
+  $blog = new Blog("","","");
+  if(isset($_GET['page_no'])) {
+    $page_no = $_GET['page_no'];
+  } else {
+    $page_no = 0;
+  }
+  $result = $blog->getall($page_no);
+  $count = $blog->countblog();
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,14 +18,18 @@
     <title>
       Blogify
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-home-64.png">
+    <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="core.js" type="text/javascript" charset="utf-8" async defer></script>
   </head>
   <body>
     <?php
@@ -34,7 +48,11 @@
                   $user_id = $_SESSION['code'];  
                   $blog = new Blog(" "," "," "," "," "," "); 
                   $row = $blog->getusername($user_id);
-                  echo "<img class='profile-img' src='".$row['image']."'>";
+                  if ($row['image'] == NULL) {
+                    echo "<img class='profile-img' src='../dummy-image.jpg'>";
+                  } else {
+                    echo "<img class='profile-img' src='".$row['image']."'>";
+                  }
                   echo "  ".$row['first_name']." ".$row['last_name']; 
                 echo "</button>";
                 echo "<div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>";
@@ -58,34 +76,65 @@
       }
     ?>
     <div class="banner">
-      <h1>Convert your thinking
-        <br> into blogs</h1>
+      <div id="head" class="head"></div>
     </div>
     <div class="container">
     <h3 class="read-blog">Read Blogs</h3>
     <?php
-        $blog = new Blog("","","");
-        $result = $blog->getall();
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
             $user_name = $blog->getusername($row['user_id']);
             $title = $row['blog_title'];
             $time  = date('m/d/Y H:i', $row['time']);
-            echo "<a href = '../Blog/readblog.php?q=".$row['blog_id']."' class= 'blog-anchor'>";
+           
                 echo "<div class='card card-margin'>";
                 echo "<div class='card-body'>";
-                  echo "<h5 class='card-title'>$title</h5>";
-                  echo "<footer class='blockquote-footer'>$user_name 
+                  echo "<h5 class='card-title card-head'>$title</h5>";
+                  echo "<footer class='blockquote-footer'>".$user_name['first_name']." 
                   <cite title='Source Title'>$time</cite></footer>";
                   echo "<br>";
+                  echo "<a href = '../Blog/readblog.php?q=".$row['blog_id']."' class= 'btn btn-primary'>Read More</a>";
                 echo "</div>";
               echo "</div>";
-            echo "</a>";
           }
         } else {
           echo "<h3> No Blogs Present Till Date </h3>";
         }
-      ?>  
+      ?> 
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+         
+          <?php
+            if ($page_no != 0) {
+              $index = $page_no - 2;
+              echo "<li class='page-item'>";
+                echo "<a class='page-link pager' href='?page_no=$index'>Previous</a>";
+               
+              echo "</li>";
+            } 
+            $index = $page_no;
+            if ($page_no + 2 < $count) {
+              $index += 2;
+              $pager = $index/2;
+              echo "<li class='page-item'><a class='page-link pager' href='?page_no=$index'>$pager</a></li>";
+            }
+             if ($page_no + 4 < $count) {
+              $index += 2;
+              $pager = $index/2;
+              echo "<li class='page-item'><a class='page-link pager' href='?page_no=$index'>$pager</a></li>";
+            }
+            if ($page_no + 2 < $count) {
+              echo "<li class='page-item'>";
+                echo "<a class='page-link pager' href='?page_no=$index'>Next</a>";
+              echo "</li>";
+            }
+          ?>
+          
+          
+        </ul>
+    </nav> 
     </div>
+    
+    <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
   </body>
 </html>

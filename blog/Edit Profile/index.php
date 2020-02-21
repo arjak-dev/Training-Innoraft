@@ -20,6 +20,7 @@ include('../User.php');
     <title>
       Edit profile
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-check-book-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -40,13 +41,14 @@ include('../User.php');
         </br>
         <div class="center">
           <table>
-            <form action="code.php" method="POST" enctype="multipart/form-data">
+            <form action="code.php" method="POST" enctype="multipart/form-data" id = "form_call"> 
               <tr>
                 <td>
                   First Name:
                 </td>
                 <td>
-                  <input type="text" name = 'first_name' class="form-control" value="<?php echo $first_name ?>">
+                  <input type="text" id = "fname" name = 'first_name' class="form-control" value="<?php echo $first_name ?>" required>
+                  <label id="fname_error"></label>
                 </td>
               </tr>
               <tr>
@@ -54,7 +56,8 @@ include('../User.php');
                   Last Name:
                 </td>
                 <td>
-                  <input type="text" name = "last_name" class="form-control" value="<?php echo $last_name ?>">
+                  <input type="text" id = "sname" name = "last_name" class="form-control" value="<?php echo $last_name ?>" required>
+                  <label id="sname_error"></label>
                 </td>
               </tr>
               <tr>
@@ -62,7 +65,8 @@ include('../User.php');
                   Email Id:
                 </td>
                 <td>
-                  <input type="text" name = "email_id" class="form-control"  value="<?php echo $email_id ?>">
+                  <input type="text" id="email_input" name = "email_id" class="form-control"  value="<?php echo $email_id ?>" required>
+                  <label id="email_error"></label>
                 </td>
               </tr>
               <tr>
@@ -70,7 +74,8 @@ include('../User.php');
                   Phone number:
                 </td>
                 <td>
-                  <input type="text" name = "phone_no" class="form-control"  value="<?php echo $phone_no ?>">
+                  <input type="text" id="phno" name = "phone_no" class="form-control"  value="<?php echo $phone_no ?>" required>
+                  <label id="ph_no_error"></label>
                 </td>
               </tr>
               </tr>
@@ -97,5 +102,6 @@ include('../User.php');
           </table>
         </div>
     </div>
+    <script src="../script.js" type="text/javascript" charset="utf-8" async defer></script>>
   </body>
 </html>

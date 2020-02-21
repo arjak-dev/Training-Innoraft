@@ -16,6 +16,8 @@
     <title>
       Read Blog
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-credit-card-64.png">
+     <link rel = "icon" type = "image/png" href = "/icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -57,7 +59,7 @@
         echo "<img class='blog-img' src=".$row['image'].">";
       }
       echo "<p class='read-body'>";
-          echo $row['blog_body'];
+          echo nl2br($row['blog_body']);
       ?>
       </p>
     </div>

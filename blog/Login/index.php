@@ -19,6 +19,7 @@
     <title>
       Login to your Account
     </title>
+    <link rel = "icon" type = "image/png" href = "../icons8-toggle-on-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>

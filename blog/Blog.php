@@ -87,9 +87,9 @@ include('connection.php');
      * 
      * else return false
      */
-    function getall() {
+    function getall($page_no) {
       $conn = (new DatabaseConnection())->connection();
-      $sql = "select * from blog";
+      $sql = "select * from blog LIMIT 2 OFFSET $page_no";
       if ($result = $conn->query($sql)) {
         return $result;
       } else {
@@ -172,5 +172,14 @@ include('connection.php');
       $sql = "delete from blog where blog_id = '$blog_id'";
       $conn->query($sql); 
       $conn->close();
+    }
+
+    function countblog() {
+      $conn = (new DatabaseConnection())->connection();
+      $sql = "select count(*) as a from blog";
+      $result = $conn->query($sql);
+      $count = $result->fetch_assoc();
+      $conn->close();
+      return $count['a'];
     }
   }

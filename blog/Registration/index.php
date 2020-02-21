@@ -21,6 +21,7 @@
 <html>
   <head>
     <title>Registration</title>
+    <link rel = "icon" type = "image/png" href = "../icons8-toggle-off-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -73,6 +74,6 @@
         </form>
       </div>
     </div>
-    <script src = "script.js" ></script>
+    <script src = "../script.js" ></script>
   </body>
 </html>
