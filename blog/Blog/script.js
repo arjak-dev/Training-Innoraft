@@ -1,7 +1,6 @@
 var app = document.getElementById('head');
 
-var typewriter = new Typewriter(app,{
-    loop: true
+var typewriter = new Typewriter(app,{loop: true
 });
 
 typewriter.typeString('Convert Your')

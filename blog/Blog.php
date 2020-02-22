@@ -1,10 +1,25 @@
 <?php
 include('connection.php');
-  class Blog{
+
+  class Blog {
+
+  /**
+   * Describes the structure of the Blog data
+   * @var title String 
+   * The title of the blog 
+   * @var body String
+   * The body of the blog
+   * @var  img String
+   * The path of the image with the image name of the Blog 
+   * @var database DatabaseConnection 
+   * The object of the Dtabaseconnection class use to 
+   * run the query string
+   */
     public $title;
     public $body;
     public $img;
     public $conn;
+    public $database;
 
     /**
      * Constructor of Blog 
@@ -24,7 +39,7 @@ include('connection.php');
       $this->title = $title;
       $this->body = $body;
       $this->img = $img;
-      $this->conn = (new DatabaseConnection())->connection();
+      $this->database = new DatabaseConnection();
     }
 
     /**
@@ -38,23 +53,14 @@ include('connection.php');
      */
     function putdata ($user_id, $blog) {
       $sql = "select * from blog where blog_title = '$blog->title'";
-      
-      if ($result = $this->conn->query($sql)) { 
-        if ($result->num_rows > 0) {
-            return "The title is already present";
-          }
-      } else {
-        echo $this->conn->error;
+      $result = $this->database->runquery($sql);
+      if ($result->num_rows > 0) {
+        return "The title is already present";
       }
       $time = time();
       $sql = "insert into blog(user_id, blog_title, blog_body, time, image) 
       values('$user_id', '$blog->title', '$blog->body', '$time', '$blog->img')";
-      if ($this->conn->query($sql)) {
-        // echo "Blog Added successfully";
-      } else {
-        echo $this->conn->error;
-      }
-      $this->conn->close();
+      $this->database->runquery($sql);
     }
 
     /**
@@ -69,13 +75,9 @@ include('connection.php');
      * else return false
      */ 
     function getuserblog ($user_id) {
-      $conn = (new DatabaseConnection())->connection(); 
       $sql = "select * from blog where user_id = '$user_id'";
-      if ($result = $conn->query($sql)) {
-          return $result;
-      } else {
-        return false;
-      }
+      $result = $this->database->runquery($sql);
+      return $result;
     }
 
     /**
@@ -88,13 +90,8 @@ include('connection.php');
      * else return false
      */
     function getall($page_no) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select * from blog LIMIT 2 OFFSET $page_no";
-      if ($result = $conn->query($sql)) {
-        return $result;
-      } else {
-        return false;
-      }
+      return $this->database->runquery($sql);
     }
 
     /**
@@ -107,11 +104,9 @@ include('connection.php');
      * user name 
      */
     function getusername($user_id) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select first_name,last_name,image from user where user_id = '$user_id'";
-      $result = $conn->query($sql);
+      $result = $this->database->runquery($sql);
       $row = $result->fetch_assoc();
-      // $user_name = $row['first_name']." ".$row['last_name'];
       return $row;
     }
 
@@ -127,13 +122,8 @@ include('connection.php');
      * return databae error 
      */
     function getblogdetails ($blog_id) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select blog_title,blog_body,image from blog where blog_id = '$blog_id'";
-      if ($result = $conn->query($sql)) {
-        return $result;
-      } else {
-        echo $conn->error;
-      }
+      return $this->database->runquery($sql);
     }
 
     /**
@@ -148,16 +138,12 @@ include('connection.php');
      * @param $body string 
      * The title of the body that is to be updated
      * 
-     * @return 
-     * result a mysqli object
+     * @return mysqli object
      */
     function updateblog ($blog_id, $title,$body) {
-      $conn = (new DatabaseConnection())->connection();
       $time = time();
       $sql = "update blog set blog_title = '$title', blog_body = '$body', time = '$time' where blog_id = '$blog_id'";
-      $result = $conn->query($sql);
-      return $result;
-      $conn->close();
+      return $this->database->runquery($sql); 
     }
 
     /**
@@ -168,18 +154,19 @@ include('connection.php');
      * 
      */
     function deleteblog($blog_id) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "delete from blog where blog_id = '$blog_id'";
-      $conn->query($sql); 
-      $conn->close();
+      $this->database->runquery($sql);
     }
 
+    /**
+     * Count total the no. of blog present in the database
+     * @return int 
+     */
     function countblog() {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select count(*) as a from blog";
-      $result = $conn->query($sql);
+      $result = $this->database->runquery($sql);  
       $count = $result->fetch_assoc();
-      $conn->close();
       return $count['a'];
     }
+
   }

@@ -28,6 +28,7 @@
     public $email_id;
     public $phone_no;
     public $password;
+    public $database;
 
     /**
      * Constructor of user class 
@@ -58,6 +59,7 @@
       $this->email_id = $email_id;
       $this->phone_no = $phone_no;
       $this->password = $password;
+      $this->database = new DatabaseConnection();
     }
 
     /**
@@ -70,25 +72,17 @@
      * if the data is successfully entered in the database then it returns true 
      */
     function putdata ($user) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select * from user where user_name = '$user->user_name'";
-      if ($result = $conn->query($sql)) { 
-        if ($result->num_rows > 0) {
-            return "The User Name is already present";
-          }
-      } else {
-        echo $conn->error;
+      $result = $this->database->runquery($sql);
+      if ($result->num_rows > 0) {
+        return "The User Name is already present";
       }
       $sql = "insert into user(user_name, first_name, last_name, email_id, phone_no, password)
       values('$this->user_name','$this->first_name', '$this->last_name', '$this->email_id', '$this->phone_no', '$this->password')";
-      if (!$conn) {
-        echo "connection failed";
-      }
-      if ($conn->query($sql) == true) {
-        $conn->close();
+      if ($this->database->runquery($sql)) {
         return true;
       } else {
-        return $conn->error;
+        return "error";
       }
     }
     
@@ -108,38 +102,25 @@
      * 
      */
     function checkuser ($user_name, $password) {
-      $conn = (new DatabaseConnection())->connection();
       $sql = "select * from user where binary user_name = '$user_name' and binary password = '$password'";
-      if ($result = $conn->query($sql)) {
+      $result = $this->database->runquery($sql);    
+      if (mysqli_num_rows($result)) {
         $row = $result->fetch_assoc();
-        if (mysqli_num_rows($result)) {
-          $conn->close();  
-          return $row['user_id'];;
-        } else {
-          $conn->close();
-          return false;
-        }
-      } else {
-        echo "Database Problem please try after some time";
-      }
-    }
-    /**
-     * [getuserdetails description]
-     * @param  [type] $user_id [description]
-     * @return [type]          [description]
-     */
-    function getuserdetails($user_id) {
-      $conn = (new DatabaseConnection())->connection();
-      $sql = "Select * from user where user_id = '$user_id'";
-      if ($result = $conn->query($sql)) {
-        return $result;
-      } else {
-        return false;
+        return $row['user_id'];;
       }
     }
 
+    /**
+     * @param  user_id int 
+     * @return mysqli object 
+     */
+    function getuserdetails($user_id) {
+      $sql = "Select * from user where user_id = '$user_id'";
+      return $this->database->runquery($sql);
+    }
+
    /**
-    * [updateuser description]
+    * update the user data 
     * @param  [int] $user_id    ID no. of a user
     * @param  [String] $first_name First name of the user 
     * @param  [String] $last_name  Last name of the user
@@ -148,20 +129,13 @@
     * @param  [String] $img      Path of the user profile picture that is stored in the server  
     */
     function updateuser($user_id, $first_name, $last_name, $email_id, $phone_no, $img) {
-      $conn = (new DatabaseConnection())->connection();
       if ($img != null) {
         $sql = "update user set image = '$img' where user_id = '$user_id'";
-        if ($conn->query($sql)) {
-          echo "success";
-        } else {
-          echo $conn-error;
-        }
-
+        $this->database->runquery($sql);
       }
       $sql = "update user set first_name = '$first_name', last_name = '$last_name', email_id = '$email_id', 
             phone_no = '$phone_no' where user_id = '$user_id'";
-      $conn->query($sql);
-      $conn->close();
+      $this->database->runquery($sql);
     }
 
   }

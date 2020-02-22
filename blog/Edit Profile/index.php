@@ -1,18 +1,5 @@
 <?php
-include('../User.php');
-  $user = new User(" ", " ", " ", " ", " ", " ");
-  session_start();
-  if (isset($_SESSION['code'])) {
-    $user_id  = $_SESSION['code'];
-  } else {
-   header('location:../Blog');
-  }
-  $result = $user->getuserdetails($user_id);
-  $row = $result->fetch_assoc();
-    $first_name = $row['first_name'];
-    $last_name = $row['last_name'];
-    $email_id = $row["email_id"];
-    $phone_no = $row['phone_no'];
+  include('code.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +7,7 @@ include('../User.php');
     <title>
       Edit profile
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-check-book-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-check-book-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>

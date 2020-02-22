@@ -7,7 +7,7 @@
     <title>
       Profile
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-toggle-on-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-toggle-on-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <!-- <link href='https://$row =fonts.googleapis.com/css?family=Sofia' rel='stylesheet'> -->
