@@ -16,7 +16,7 @@
   <body>
     <div class="reg_bg_div">
       <div class = "card bg-dark text-white reg_div">
-        <form action="" method="POST" id="form_call">
+        <form action="" method="POST" id="form_call"  enctype="multipart/form-data">
           <h3>
             Create Account
           </h3>
@@ -40,7 +40,7 @@
           <label></label>
           Enter Your image :
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" name="file">
+              <input type="file" class="custom-file-input" id="customFile" name='file'>
               <label class="custom-file-label" for="customFile">profile image</label>
             </div>
           <label>

@@ -28,6 +28,7 @@
     public $email_id;
     public $phone_no;
     public $password;
+    public $image;
     public $database;
 
     /**
@@ -71,14 +72,14 @@
      * @return true 
      * if the data is successfully entered in the database then it returns true 
      */
-    function putdata ($user) {
+    function putdata ($user,$image) {
       $sql = "select * from user where user_name = '$user->user_name'";
       $result = $this->database->runquery($sql);
       if ($result->num_rows > 0) {
         return "The User Name is already present";
       }
-      $sql = "insert into user(user_name, first_name, last_name, email_id, phone_no, password)
-      values('$this->user_name','$this->first_name', '$this->last_name', '$this->email_id', '$this->phone_no', '$this->password')";
+      $sql = "insert into user(user_name, first_name, last_name, email_id, phone_no, password,image)
+      values('$this->user_name','$this->first_name', '$this->last_name', '$this->email_id', '$this->phone_no', '$this->password','$image')";
       if ($this->database->runquery($sql)) {
         return true;
       } else {
