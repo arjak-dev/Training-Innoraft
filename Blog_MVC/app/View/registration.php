@@ -16,7 +16,7 @@
   <body>
     <div class="reg_bg_div">
       <div class = "card bg-dark text-white reg_div">
-        <form action="" method="POST" id="form_call"  enctype="multipart/form-data">
+        <form action="registration" method="POST" id="form_call"  enctype="multipart/form-data">
           <h3>
             Create Account
           </h3>

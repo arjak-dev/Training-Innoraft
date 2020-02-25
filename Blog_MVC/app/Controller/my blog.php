@@ -4,15 +4,11 @@
   session_start();
   if(!isset($_SESSION['code'])) {
     header('location: home');
-  }
-
-
-  
+  }  
   session_start();
   if(!isset($_SESSION['code'])) {
-    header('location: ../Blog');
+    header('location: home');
   }
-  // $blog = "";
   $title ="";
   $blog_body = "";
   $user_id = $_SESSION['code'];
@@ -50,4 +46,12 @@
     $blog = new Blog($title, $blog_body, $img);
     $result = $blog->putdata($user_id,$blog);
   }
+  
+  $user_id = $_SESSION['code']; 
+  $blog = new Blog(" "," "," "," "," "," "); 
+  $row = $blog->getusername($user_id);
+  $result = $blog->getuserblog($user_id);
+  $time  = date('m/d/Y H:i', $row['time']);
+  require_once('app/View/my blog.php');
+
 ?>

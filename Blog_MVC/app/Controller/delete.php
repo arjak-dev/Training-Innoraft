@@ -1,5 +1,5 @@
 <?php
-  include("./vendor/autoload.php");
+  include("vendor/autoload.php");
   use Model\Blog;
   if(isset($_GET['q'])) {
     $q = $_GET['q'];

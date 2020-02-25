@@ -1,7 +1,3 @@
-<?php
-  include_once('app/Controller/edit blog.php');
-?>
-
 <!Doctype html>
 <html>
   <head>

@@ -35,10 +35,6 @@
             $img = "";
         } 
       }
-      // echo "$first_name";
-      // echo $img;
-      // echo "$last_name";
-      // echo "$phone_no";
     $new_user = new User($user_name, $first_name, $last_name, $email_id, $phone_no, $password);
     $result = $new_user->putdata($new_user,$img);
     // print_r($result);
@@ -48,5 +44,6 @@
       $error = $result;
     }
   }
+  require_once('app/View/registration.php');
 
   ?>

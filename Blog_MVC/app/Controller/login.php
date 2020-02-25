@@ -1,5 +1,5 @@
 <?php
-  include('../../vendor/autoload.php');
+  include('vendor/autoload.php');
   use Model\User;
   if(isset($_POST['submit'])){
     $user_name = $_POST['username'];
@@ -9,9 +9,10 @@
       session_start();
       $_SESSION['code'] = $status;
       echo $status;
-      header('location: ../../home');
+      header('location: home');
     } else {
-      header('location: ../../login?error=1');
+      header('location: login?error=1');
     }
   }
+  require_once('app/View/login.php');
   ?>

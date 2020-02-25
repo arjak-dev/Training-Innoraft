@@ -1,6 +1,4 @@
-<?php
-  include_once("app/Controller/read.php");
-?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,22 +18,18 @@
       <a class= "navbar-brand logo-color" href="">Blogify</a>
       <ul class='display-ul'>
         
-          <?php
-            session_start();
-            if (isset($_SESSION['code'])) {
-              echo "<li>";
-              echo "<a href='my blog' class='btn btn-secondary btn-sm'> My blogs </a>";
-              echo "</li>";
-              echo "<li>";
-              echo "<a href='home' class='btn btn-secondary btn-sm'>Home</a>";
-              echo "</li>";
-            } else {
-              echo "<li>";
-              echo "<a href='home' class='btn btn-secondary btn-sm'>Home</a>";
-              echo "</li>";  
-            }
-          ?>
-          
+          <?php if (isset($_SESSION['code'])) : ?>
+            <li>
+              <a href='my blog' class='btn btn-secondary btn-sm'> My blogs </a>
+            </li>
+            <li>
+              <a href='home' class='btn btn-secondary btn-sm'>Home</a>
+            </li>
+          <?php else: ?>
+            <li>
+              <a href='home' class='btn btn-secondary btn-sm'>Home</a>
+            </li>
+          <?php endif ?>
         </li>
       </ul>
     </nav>
@@ -45,13 +39,11 @@
           echo $row['blog_title'];
         ?>
       </h1>
-      <?php
-      if ($row['image']) {
-        echo "<img class='blog-img' src=".$row['image'].">";
-      }
-      echo "<p class='read-body'>";
-          echo nl2br($row['blog_body']);
-      ?>
+      <?php if ($row['image']): ?>
+        <img class='blog-img' src="<?php echo $row['image']?>" >;
+      <?php endif ?>
+      <p class='read-body'>
+        <?php echo nl2br($row['blog_body']) ?>
       </p>
     </div>
   </body>

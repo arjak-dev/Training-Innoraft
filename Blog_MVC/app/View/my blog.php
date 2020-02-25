@@ -1,7 +1,3 @@
-<?php
-  include_once('app/Controller/my blog.php');
-  use Model\Blog;
- ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,10 +27,7 @@
         <li class='nav-item profile-li'>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <?php
-            $user_id = $_SESSION['code'];  
-            $blog = new Blog(" "," "," "," "," "," "); 
-            $row = $blog->getusername($user_id);
+          <?php 
             if ($row['image'] == NULL) {
             echo "<img class='profile-img' src='../dummy-image.jpg'>";
             } else {
@@ -53,31 +46,24 @@
       </ul>
     </nav>
     <div class="container">
-      <h3><?php echo "$result"; ?></h3>
-      <?php
-        $blog = new Blog("", "", "");
-        $result = $blog->getuserblog($user_id);
-        if (mysqli_num_rows($result)) {
-          while ($row = $result->fetch_assoc()) {
-            $user_name = $blog->getusername($row['user_id']);
-            $title = $row['blog_title'];
-            $time  = date('m/d/Y H:i', $row['time']);
-              echo "<div class='card card-margin'>";
-                echo "<div class='card-body'>";
-                  echo "<h5 class='card-title'>$title</h5>";
-                  echo "<footer class='blockquote-footer'>".$user_name['first_name']."
-                       <cite title='Source Title'>$time</cite></footer>";
-                  echo "<br>";
-                  echo "<a href='readblog?q=".$row['blog_id']."' class='btm-margin btn btn-success'>Read more</a>";
-                  echo "<a href='edit?q=".$row['blog_id']."' class='btm-margin btn btn-primary'>Edit</a>";
-                  echo "<a href='Delete?q=".$row['blog_id']."' class='btm-margin btn btn-danger'>Delete</a>";
-                  echo "</div>";
-                echo "</div>";
-          }
-        } else {
-          echo "<h3> No Blogs Present Till Date </h3>";
-        }
-      ?>  
+      <?php if (mysqli_num_rows($result)): ?>
+          <?php while ($row = $result->fetch_assoc()):  
+            $user_name = $blog->getusername($row['user_id']); ?>
+            <div class='card card-margin'>
+                <div class='card-body'>
+                  <h5 class='card-title'> <?php echo $row['blog_title'] ?></h5>
+                  <footer class='blockquote-footer'><?php echo $user_name['first_name'] ?>
+                       <cite title='Source Title'><?php echo $time ?></cite></footer>
+                  <br>
+                  <a href='read?q= <?php echo $row['blog_id'] ?>' class='btm-margin btn btn-success'>Read more</a>
+                  <a href='edit?q=<?php echo $row['blog_id'] ?>' class='btm-margin btn btn-primary'>Edit</a>
+                  <a href='Delete?q=<?php echo $row['blog_id'] ?>' class='btm-margin btn btn-danger'>Delete</a>
+                </div>
+              </div>
+          <?php endwhile ?>
+          <?php else: ?>
+            <h3> No Blogs Present Till Date </h3>
+        <?php endif ?>
     </div>
   </body>
 </html>

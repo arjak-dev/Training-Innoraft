@@ -31,7 +31,6 @@
             <label class="custom-file-label" for="customFile">Enter your Blog image</label>
           </div>
         </div>
-        
         <div>
           <input type="submit" class = "btn btn-success" value="SAVE" name = "save">
           <a class="btn btn-light" href="my blog">CANCEL</a>

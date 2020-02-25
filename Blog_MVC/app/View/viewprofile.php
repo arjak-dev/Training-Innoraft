@@ -1,6 +1,3 @@
-<?php
-  include('app/Controller/ViewProfile.php');
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,17 +25,11 @@
     </nav>
     <div class = "container Profile">
       <div class="profile-div text-center">
-      <?php
-        // $user_id = $_SESSION['code'];  
-        // $user = new User(" "," "," "," "," "," "," "); 
-        // $result = $user->getuserdetails($user_id);
-        // $row = $result->fetch_assoc();
-         if ($row['image'] == NULL) {
-            echo "<img class='profile-image' src='../dummy-image.jpg'>";
-          } else {
-            echo "<img class='profile-image' src='".$row['image']."'>";
-          }
-      ?>
+      <?php if ($row['image'] == NULL): ?>
+        <img class='profile-image' src='../dummy-image.jpg'>
+      <?php else: ?>
+        <img class='profile-image' src='<?php echo $row['image'] ?>'>
+      <?php endif ?>
         <table>
           <tr>
             <td>

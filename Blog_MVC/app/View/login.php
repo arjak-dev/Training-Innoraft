@@ -15,7 +15,7 @@
   <body>
   <div class="bg_div">
     <div class="container center_div card bg-dark text-white">
-      <form action="app/Controller/login.php" method="POST">
+      <form action="login" method="POST">
         <h3>
           Login
         </h3></br>

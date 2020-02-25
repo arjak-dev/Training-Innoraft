@@ -22,3 +22,4 @@ if (isset($_GET['q'])) {
   $blog = new Blog(" ", " "," ");
   $result = $blog->getblogdetails($q);
   $row = $result->fetch_assoc();
+require_once('app/View/edit blog.php');  

@@ -1,12 +1,8 @@
-<?php
-  include_once('./app/Controller/home.php');
-  use Model\Blog;
-?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>
-      Blogify
+      <?php echo $page_title ?>
     </title>
   
     <link rel = "icon" type = "image/png" href = "title_logos/icons8-home-64.png">
@@ -27,94 +23,83 @@
       <a class='navbar-brand logo-color' href=''>Blogify</a>
       <ul class='display-ul'>
       <li class='nav-item'>
-    <?php
-      session_start();
-      if (isset($_SESSION['code'])){
-        echo "<a class='btn btn-primary btn-sm' href='my blog'>My Blog</a>";
-        echo "</li>";
-        echo "<li class='nav-item profile-li'>";
-          echo "<div class='dropdown'>";
-            echo "<button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-              $user_id = $_SESSION['code'];  
-              $blog = new Blog(" "," "," "," "," "," "); 
-              $row = $blog->getusername($user_id);
-              if ($row['image'] == NULL) {
-                echo "<img class='profile-img' src='../dummy-image.jpg'>";
-              } else {
-                echo "<img class='profile-img' src='".$row['image']."'>";
-              }
-              echo "  ".$row['first_name']." ".$row['last_name']; 
-            echo "</button>";
-            echo "<div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>";
-              echo "<a class='dropdown-item' type='button' href='view profile'>View Profile</a>";
-              echo "<a class='dropdown-item' href='logout' type='button'>Logout</a>";
-            echo "</div>";
-            echo "</div>";
-        echo "</li>";
-    echo "</ul></nav>";
-      } else {
-            echo "<a class='btn btn-primary btn-sm' href='login'>Sign in</a>";
-          echo "</li>";
-          echo "<li class='nav-item'>";
-            echo "<a class='btn btn-secondary btn-sm' href='registration'>Sign up</a>";
-          echo "</li>";
-        echo "</ul></nav>";
-      }
-    ?>
+    
+      <?php if (isset($_SESSION['code'])): ?>
+        <a class='btn btn-primary btn-sm' href='my blog'>My Blog</a>
+        </li>
+        <li class='nav-item profile-li'>
+          <div class='dropdown'>
+            <button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+              <?php if ($row['image'] == NULL) : ?>
+                <img class='profile-img' src='../dummy-image.jpg'>
+              <?php else: ?>
+                <img class='profile-img' src='<?php echo $row['image'] ?>'>;
+              <?php endif ?>
+            <?php echo $row['first_name']." ".$row['last_name']; ?> 
+            </button>
+            <div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>
+              <a class='dropdown-item' type='button' href='view profile'>View Profile</a>
+              <a class='dropdown-item' href='logout' type='button'>Logout</a>
+            </div>
+            </div>
+        </li>
+        </ul>
+        </nav>
+      <?php else : ?>
+          <a class='btn btn-primary btn-sm' href='login'>Sign in</a>
+          </li>
+          <li class='nav-item'>
+          <a class='btn btn-secondary btn-sm' href='registration'>Sign up</a>
+          </li>
+        </ul></nav>
+      <?php endif ?>
     <div class="banner">
       <div id="head" class="head"></div>
     </div>
     <div class="container">
     <h3 class="read-blog">Read Blogs</h3>
-    <?php
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-            $user_name = $blog->getusername($row['user_id']);
-            $title = $row['blog_title'];
-            $time  = date('m/d/Y H:i', $row['time']);
-           
-                echo "<div class='card card-margin'>";
-                echo "<div class='card-body'>";
-                  echo "<h5 class='card-title card-head'>$title</h5>";
-                  echo "<footer class='blockquote-footer'>".$user_name['first_name']." 
-                  <cite title='Source Title'>$time</cite></footer>";
-                  echo "<br>";
-                  echo "<a href = 'readblog?q=".$row['blog_id']."' class= 'btn btn-primary'>Read More</a>";
-                echo "</div>";
-              echo "</div>";
-          }
-        } else {
-          echo "<h3> No Blogs Present Till Date </h3>";
-        }
-      ?> 
+    <?php if ($result->num_rows > 0): ?>
+          <?php while ($row = $result->fetch_assoc()): ?>
+              <div class='card card-margin'>
+                <div class='card-body'>
+                  <h5 class='card-title card-head'><?php echo $row['blog_title'] ?></h5>";
+                  <footer class='blockquote-footer'><?php $user_name = $blog->getusername($row['user_id']);
+                   echo $user_name['first_name'] ?> 
+                  <cite title='Source Title'><?php echo $time ?> </cite></footer>
+                  <br>
+                  <a href = 'read?q=<?php echo $row['blog_id'] ?>' class= 'btn btn-primary'>Read More</a>
+                </div>
+              </div>
+          <?php endwhile ?>
+        <?php else: ?>
+          <h3> No Blogs Present Till Date </h3>
+        <?php endif ?>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
          
-          <?php
-            if ($page_no != 0) {
-              $index = $page_no - 2;
-              echo "<li class='page-item'>";
-                echo "<a class='page-link pager' href='?page_no=$index'>Previous</a>";
-               
-              echo "</li>";
-            } 
+          <?php if ($page_no != 0) : 
+              $index = $page_no - 2; ?>
+              <li class='page-item'>
+                <a class='page-link pager' href='?page_no=<?php echo $index ?>'>Previous</a>
+              </li>
+          <?php endif;
             $index = $page_no;
-            if ($page_no + 2 < $count) {
+            if ($page_no + 2 < $count): 
+              $index += 2; 
+              $pager = $index/2; ?>
+              <li class='page-item'><a class='page-link pager' href='?page_no=<?php echo $index ?>'><?php echo $pager ?></a></li>
+            <?php endif ?>
+            <?php if ($page_no + 4 < $count) :
               $index += 2;
               $pager = $index/2;
-              echo "<li class='page-item'><a class='page-link pager' href='?page_no=$index'>$pager</a></li>";
-            }
-             if ($page_no + 4 < $count) {
-              $index += 2;
-              $pager = $index/2;
-              echo "<li class='page-item'><a class='page-link pager' href='?page_no=$index'>$pager</a></li>";
-            }
-            if ($page_no + 2 < $count) {
-              echo "<li class='page-item'>";
-                echo "<a class='page-link pager' href='?page_no=$index'>Next</a>";
-              echo "</li>";
-            }
-          ?>  
+            ?>
+              <li class='page-item'><a class='page-link pager' href='?page_no=<?php echo $index ?>'><?php echo $pager ?></a></li>            
+            <?php endif ?>
+            <?php if ($page_no + 2 < $count) : ?>
+              <li class='page-item'>
+                <a class='page-link pager' href='?page_no=<?php echo $index ?>'>Next</a>
+              </li>
+            <?php endif ?>
         </ul>
     </nav> 
     </div>

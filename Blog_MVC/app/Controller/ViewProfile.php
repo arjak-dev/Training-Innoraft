@@ -14,3 +14,5 @@
     $last_nmae = $row['last_name'];
     $email_id = $row["email_id"];
     $phone_no = $row['phone_no'];
+
+  require('app/View/viewprofile.php');
