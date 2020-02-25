@@ -1,5 +1,7 @@
 <?php
-  include('./app/Model/Blog.php');
+  include('vendor/autoload.php');
+  use Model\Blog;
+  
   // include('../User.php');
   $page_no = 0;
   echo "$count";

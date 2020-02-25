@@ -1,7 +1,6 @@
 <?php
-include('connection.php');
-
-  class Blog {
+namespace Model;
+class Blog {
 
   /**
    * Describes the structure of the Blog data

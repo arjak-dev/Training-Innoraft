@@ -1,5 +1,6 @@
 <?php
-  include('../Model/User.php');
+  include('../../vendor/autoload.php');
+  use Model\User;
   if(isset($_POST['submit'])){
     $user_name = $_POST['username'];
     $password = $_POST['password'];

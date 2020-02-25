@@ -1,5 +1,5 @@
 <?php
-  include('connection.php');
+  namespace Model;
   /**
    * Defines te Structure of the User class 
    * 

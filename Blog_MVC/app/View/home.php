@@ -1,5 +1,6 @@
 <?php
   include_once('./app/Controller/home.php');
+  use Model\Blog;
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,11 +9,10 @@
       Blogify
     </title>
   
-    <!-- <link rel = "icon" type = "image/png" href = "../title_logos/icons8-home-64.png"> -->
+    <link rel = "icon" type = "image/png" href = "title_logos/icons8-home-64.png">
     <link rel="shortcut icon" href="favicon.ico">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link href="css/style.css"  rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
@@ -23,41 +23,36 @@
     <script src="Script/core.js" type="text/javascript" charset="utf-8" async defer></script>
   </head>
   <body>
+      <nav class='navbar navbar-expand-mg bg-dark navbar-dark'>
+      <a class='navbar-brand logo-color' href=''>Blogify</a>
+      <ul class='display-ul'>
+      <li class='nav-item'>
     <?php
       session_start();
-      // session_unset();
       if (isset($_SESSION['code'])){
-        echo "<nav class='navbar navbar-expand-mg bg-dark navbar-dark'>";
-          echo "<a class='navbar-brand logo-color' href=''>Blogify</a>";
-          echo "<ul class='display-ul'>";
-            echo "<li class='nav-item'>";
-              echo "<a class='btn btn-primary btn-sm' href='../UserBlog'>My Blog</a>";
-            echo "</li>";
-            echo "<li class='nav-item profile-li'>";
-              echo "<div class='dropdown'>";
-                echo "<button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-                  $user_id = $_SESSION['code'];  
-                  $blog = new Blog(" "," "," "," "," "," "); 
-                  $row = $blog->getusername($user_id);
-                  if ($row['image'] == NULL) {
-                    echo "<img class='profile-img' src='../dummy-image.jpg'>";
-                  } else {
-                    echo "<img class='profile-img' src='".$row['image']."'>";
-                  }
-                  echo "  ".$row['first_name']." ".$row['last_name']; 
-                echo "</button>";
-                echo "<div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>";
-                  echo "<a class='dropdown-item' type='button' href='../View Profile'>View Profile</a>";
-                  echo "<a class='dropdown-item' href='app/Controller/logout.php' type='button'>Logout</a>";
-                echo "</div>";
-                echo "</div>";
-            echo "</li>";
-        echo "</ul></nav>";
+        echo "<a class='btn btn-primary btn-sm' href='my blog'>My Blog</a>";
+        echo "</li>";
+        echo "<li class='nav-item profile-li'>";
+          echo "<div class='dropdown'>";
+            echo "<button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+              $user_id = $_SESSION['code'];  
+              $blog = new Blog(" "," "," "," "," "," "); 
+              $row = $blog->getusername($user_id);
+              if ($row['image'] == NULL) {
+                echo "<img class='profile-img' src='../dummy-image.jpg'>";
+              } else {
+                echo "<img class='profile-img' src='".$row['image']."'>";
+              }
+              echo "  ".$row['first_name']." ".$row['last_name']; 
+            echo "</button>";
+            echo "<div class='dropdown-menu dropdown-div' aria-labelledby='dropdownMenu2'>";
+              echo "<a class='dropdown-item' type='button' href='view profile'>View Profile</a>";
+              echo "<a class='dropdown-item' href='logout' type='button'>Logout</a>";
+            echo "</div>";
+            echo "</div>";
+        echo "</li>";
+    echo "</ul></nav>";
       } else {
-        echo "<nav class='navbar navbar-expand-mg bg-dark navbar-dark'>";
-        echo "<a class='logo-color' href=''>Blogify</a>";
-        echo "<ul class='display-ul'>";
-          echo "<li class='nav-item'>";
             echo "<a class='btn btn-primary btn-sm' href='login'>Sign in</a>";
           echo "</li>";
           echo "<li class='nav-item'>";

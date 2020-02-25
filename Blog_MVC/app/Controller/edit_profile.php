@@ -1,20 +1,25 @@
 <?php
   include('vendor/autoload.php');
   use Model\User;
-  if(isset($_POST['submit'])){
-    $user_name = $_POST['user_name'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email_id = $_POST['email_id'];
-    $phone_no = $_POST['phone_no'];
-    $password = $_POST['password'];
-    $img = "";
+    session_start();
+    if(isset($_SESSION['code'])) {
+      $user_id = $_SESSION['code'];
+    } else {
+      header('location: ../Blog');
+    }
+    if (isset($_POST['submit'])) {
+      $first_name = $_POST['first_name'];
+      $last_name = $_POST['last_name'];
+      $phone_no = $_POST['phone_no'];
+      $email_id = $_POST['email_id'];
+
+      $img = "";
         if (isset($_FILES['file'])) {
         $file = $_FILES["file"];
         if($file['name'] != NULL){
           $fileName = $file['name'];
           $fileTempName = $file['tmp_name'];
-           $fileType = $file['type'];
+          $fileType = $file['type'];
           $fileError = $file['error'];
           $fileExtension = explode('.',$fileName);
 
@@ -36,17 +41,23 @@
         } 
       }
       // echo "$first_name";
-      // echo $img;
       // echo "$last_name";
       // echo "$phone_no";
-    $new_user = new User($user_name, $first_name, $last_name, $email_id, $phone_no, $password);
-    $result = $new_user->putdata($new_user,$img);
-    // print_r($result);
-    if ($result == 'true') {
-      header ('location: login');
-     }else {
-      $error = $result;
+      $user = new User(" ", " ", " "," "," "," ");
+      $user->updateuser($user_id, $first_name, $last_name, $email_id, $phone_no, $img);
+      header('location: view profile');
     }
-  }
 
-  ?>
+  $user = new User(" ", " ", " ", " ", " ", " ");
+  session_start();
+  if (isset($_SESSION['code'])) {
+    $user_id  = $_SESSION['code'];
+  } else {
+   header('location:../Blog');
+  }
+  $result = $user->getuserdetails($user_id);
+  $row = $result->fetch_assoc();
+    $first_name = $row['first_name'];
+    $last_name = $row['last_name'];
+    $email_id = $row["email_id"];
+    $phone_no = $row['phone_no'];

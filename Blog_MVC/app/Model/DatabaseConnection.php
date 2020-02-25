@@ -1,5 +1,6 @@
 <?php
-  class DatabaseConnection{
+  namespace Model;
+  class DatabaseConnection {
     public $server_name; 
     public $user_name;
     public $password;
@@ -20,7 +21,7 @@
      * @return [type]
      */
     function connection(){
-      $conn = new mysqli($this->server_name, $this->user_name, $this->password, $this->db_name);
+      $conn = new \mysqli($this->server_name, $this->user_name, $this->password, $this->db_name);
       return $conn;
     }
 
