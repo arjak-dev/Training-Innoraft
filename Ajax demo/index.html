@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    
+</head>
+<body>
+    <form >
+        First Name : <input type="text" id="name">
+        Password : <input type="password" id="password">
+        <button type="submit" id="submit">submit</button>
+        <p id="form-message"></p>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var name = $("#name").val();
+                var pass = $('#password').val();
+                var submit = $('#submit').val();
+                
+                $.post("check-login.php", {
+                    "name" : name
+                },(data) => {
+                    $('#form-message').text(data);   
+                }) ;
+                
+                //console.log(response.responseText);
+                
+
+          });
+
+        });
+    </script>
+
+</body>
+</html>
