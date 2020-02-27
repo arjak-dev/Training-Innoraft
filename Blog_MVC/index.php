@@ -48,6 +48,6 @@
     case 'regvalid' :
       include(__DIR__."/app/Controller/regvalid.php");
     break;
-    default: echo "<h1>No Page Found</h1>";
+    default: include(__DIR__."/app/View/Page_not_found.php");
   }
    
