@@ -8,32 +8,26 @@
     
 </head>
 <body>
-    <form >
-        First Name : <input type="text" id="name">
+    <form action="check-login.php" method="POST" id="form">
+        First Name : <input type="text" name="name">
         Password : <input type="password" id="password">
         <button type="submit" id="submit">submit</button>
         <p id="form-message"></p>
     </form>
     <script>
-        $(document).ready(function(){
-            $("form").submit(function(event){
-                event.preventDefault();
-                var name = $("#name").val();
-                var pass = $('#password').val();
-                var submit = $('#submit').val();
-                
-                $.post("check-login.php", {
-                    "name" : name
-                },(data) => {
-                    $('#form-message').text(data);   
-                }) ;
-                
-                //console.log(response.responseText);
-                
-
-          });
-
-        });
+        form.onsubmit = async(e) => {
+            e.preventDefault();
+            let response = await fetch('check-login.php',{
+                method: 'POST',
+                body: new FormData(form)
+            })
+            let result = await response.json();
+            console.log(result.name);
+            if(result.message != 'success'){
+                document.getElementById('form-message').innerHTML = "Not Success";   
+            }
+             
+        }
     </script>
 
 </body>
