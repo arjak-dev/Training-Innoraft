@@ -1,5 +1,6 @@
 <?php
   include('vendor/autoload.php');
+  require_once('app/View/registration.php');
   use Model\User;
   if(isset($_POST['submit'])){
     $user_name = $_POST['user_name'];
@@ -9,6 +10,11 @@
     $phone_no = $_POST['phone_no'];
     $password = $_POST['password'];
     $img = "";
+
+
+
+
+
         if (isset($_FILES['file'])) {
         $file = $_FILES["file"];
         if($file['name'] != NULL){
@@ -39,11 +45,14 @@
     $result = $new_user->putdata($new_user,$img);
     // print_r($result);
     if ($result == 'true') {
-      header ('location: login');
+      // header ('location: login');
      }else {
-      $error = $result;
+      echo json_encode(
+        [
+          "error" => $result
+        ]);
     }
   }
-  require_once('app/View/registration.php');
+ 
 
   ?>

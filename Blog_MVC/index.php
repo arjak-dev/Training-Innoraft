@@ -45,6 +45,9 @@
     case 'edit blog' :
       include(__DIR__."/app/Controller/edit blog.php");
       break;
+    case 'regvalid' :
+      include(__DIR__."/app/Controller/regvalid.php");
+    break;
     default: echo "<h1>No Page Found</h1>";
   }
    

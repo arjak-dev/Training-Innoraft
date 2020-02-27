@@ -85,14 +85,28 @@ function phone_no_check(){
 }
 
 //form send 
-form_call.onsubmit = function(){
+form_call.onsubmit = async (e) => {
+    e.preventDefault();
     document.getElementById("fname_error").innerHTML = "  ";
     document.getElementById("sname_error").innerHTML = " ";
     document.getElementById('ph_no_error').innerHTML = " ";
     document.getElementById("email_error").innerHTML=" ";
     if(firstname_check() && secondname_check() && email_check() && phone_no_check()){
-        return true;
-    }else{
-        return false;
+        let response = await fetch('regvalid',{
+            method: 'POST',
+            body: new FormData(form_call)
+        });
+        let result ="";
+        try{
+            result = await response.json();
+        } catch(e) {
+            console.log('json file problem');
+        }
+        console.log(result);
+        if(result.error == "true"){
+            window.location.href = "login";
+         } else {
+            document.getElementById('user_name_error').innerHTML = "User name is already present";
+        }
     }
 }

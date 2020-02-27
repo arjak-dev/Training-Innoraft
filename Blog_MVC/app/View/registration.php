@@ -22,7 +22,7 @@
           </h3>
           User Name:</br>
           <input type="text" name = "user_name" class = "form-control" placeholder="User Name" required>
-          <lable></lable></br>
+          <lable id="user_name_error"></lable></br>
           First name:</br>
           <input type="text" id = "fname" name = "first_name" class = "form-control input-sm" placeholder="First Name " required>
           <label id ="fname_error"></label></br>
