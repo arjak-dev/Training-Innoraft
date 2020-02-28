@@ -1,4 +1,7 @@
 <?php
+namespace Controller;
+include('vendor/autoloader.php');
+use Model\Blog;
 /**
  * The blog controller is user to control the different task related to a blog 
  * like deleting blogs editing blogs etc.
@@ -12,7 +15,7 @@ class BlogController {
    * @return void
    */
   function __contruct() {
-
+    $Blog = new Blog(" ", " ", " ");
   }
   /**
    * The fucntion used to delete the blog on the user request 
@@ -20,7 +23,7 @@ class BlogController {
    *
    * @return void
    */
-  public function deleteblog() {
-
+  public function delete($q) {
+    $this->Blog->deleteblog($q);
   }
 }
