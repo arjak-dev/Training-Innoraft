@@ -1,6 +1,8 @@
 <?php  
   include('vendor/autoload.php');
-  use Model\Blog;
+  use Controller\BlogController;
+
+  $blogController = new BlogController();
   session_start();
   if(!isset($_SESSION['code'])) {
     header('location: home');
@@ -20,27 +22,18 @@
       $file = $_FILES["file"];
       if($file['name'] != NULL){
         $fileName = $file['name'];
-          $fileTempName = $file['tmp_name'];
-          $fileType = $file['type'];
-          $fileError = $file['error'];
-          $fileExtension = explode('.',$fileName);
-
-          $allowed = array("jpg","jpeg","png");
-          $fileActualExtension = strtolower(end($fileExtension));
-          
-          if(in_array($fileActualExtension,$allowed)){
-            if ($fileError === 0) {
-                $fileNewName = uniqid(rand(),true).".".$fileActualExtension;
-                $fileDestination="upload/".$fileNewName;
-                move_uploaded_file($fileTempName,$fileDestination);
-                $img = $fileDestination;
-            }
-            } else {
-               $img = ""; 
-            }
-            } else {
-              $img = "";
-            }
+        $fileTempName = $file['tmp_name'];
+        $fileType = $file['type'];
+        $fileError = $file['error'];
+        $img = $blogController->blogimageupload(
+          $fileName,
+          $fileTempName,
+          $fileType,
+          $fileError
+        );
+      } else {
+        $img = "";
+      }
     
     }
     $blog = new Blog($title, $blog_body, $img);

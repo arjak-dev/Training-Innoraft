@@ -30,6 +30,7 @@ class ComposerStaticInitd2aa62e7721437bc4c1766646f5cb515
 
     public static $classMap = array (
         'Controller\\BlogController' => __DIR__ . '/../..' . '/app/Controller/BlogController.php',
+        'Controller\\UserController' => __DIR__ . '/../..' . '/app/Controller/UserConttroller.php',
         'Model\\Blog' => __DIR__ . '/../..' . '/app/Model/Blog.php',
         'Model\\DatabaseConnection' => __DIR__ . '/../..' . '/app/Model/DatabaseConnection.php',
         'Model\\User' => __DIR__ . '/../..' . '/app/Model/User.php',

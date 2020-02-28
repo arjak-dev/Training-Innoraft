@@ -28,7 +28,7 @@
       <?php if ($row['image'] == NULL): ?>
         <img class='profile-image' src='../dummy-image.jpg'>
       <?php else: ?>
-        <img class='profile-image' src='<?php echo $row['image'] ?>'>
+        <img class='profile-image' src='<?php echo $image ?>'>
       <?php endif ?>
         <table>
           <tr>
