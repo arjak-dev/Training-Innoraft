@@ -1,5 +1,14 @@
 <?php
   namespace Model;
+
+  /**
+   * Class handles the database connections.
+   * 
+   * @var [String] $server_name In which server the connection is required.
+   * @var [String] $user_name The user name of the Database User.
+   * @var [String] $password The passwprd of the database.
+   * @var [String] $db_name The database which is required to use.
+   */
   class DatabaseConnection {
     public $server_name; 
     public $user_name;
@@ -18,7 +27,10 @@
     }
     
     /**
-     * @return [type]
+     * Creats the database connection help of all the parameters of the 
+     * database.
+     * 
+     * @return mysqliObject The Connection object.
      */
     function connection(){
       $conn = new \mysqli($this->server_name, $this->user_name, $this->password, $this->db_name);
@@ -30,6 +42,10 @@
      * 
      * @param sql String 
      * The query string that to be used to fetch the data 
+     * 
+     * @return Object/Boolean
+     * The reusult if present 
+     * else return false.
      */
     function runquery($sql) {
       $conn = $this->connection();

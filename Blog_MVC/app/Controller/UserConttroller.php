@@ -74,6 +74,15 @@
       return $userdetails;
     } 
 
+    /**
+     * Check the user name and the password of the user, return true if the
+     * user and the password exits 
+     * else return false.
+     *
+     * @param [string] $user_name
+     * @param [string] $password
+     * @return boolean $status
+     */
     public function checkuser ($user_name, $password) {
       $status = (new User('a', 'a', 'a', 'a', 'a', 'a'))->checkuser(
         $user_name,

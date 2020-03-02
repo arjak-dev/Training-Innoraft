@@ -120,7 +120,7 @@
     /**
      * Get the user details.
      * @param  $user_id int 
-     * @return mysqli object 
+     * @return mysqliObject 
      */
     function getuserdetails($user_id) {
       $sql = "Select * from user where user_id = '$user_id'";
@@ -128,7 +128,7 @@
     }
 
    /**
-    * update the user data 
+    * update the user data. 
     * @param  [int] $user_id    ID no. of a user
     * @param  [String] $first_name First name of the user 
     * @param  [String] $last_name  Last name of the user

@@ -21,4 +21,3 @@
   }
   //load the login view
   require_once('app/View/login.php');
-  ?>

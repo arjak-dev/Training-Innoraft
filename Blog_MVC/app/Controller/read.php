@@ -1,6 +1,8 @@
 <?php
+  //including the Blog class to get the data from the Database.
   include('vendor/autoload.php');
   use Model\Blog;
+
   //starting the session for checking whether the user is logged in or not 
   session_start();
 
@@ -19,4 +21,3 @@
   
   // loading the read blog view 
   require_once('app/View/readblog.php');
-?>

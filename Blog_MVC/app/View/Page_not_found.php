@@ -15,7 +15,8 @@
 </head>
 <body>
   <div>
-    <img src = "https://d3e54v103j8qbb.cloudfront.net/static/page-not-found.211a85e40c.svg">
+    <img 
+      src = "https://d3e54v103j8qbb.cloudfront.net/static/page-not-found.211a85e40c.svg">
     <h1>Page not found</h1>
     <p>The page you are looking for is not present</p>
   </div>

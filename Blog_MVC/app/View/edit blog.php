@@ -4,12 +4,15 @@
     <title>
       Edit blog
     </title>
-    <link rel = "icon" type = "image/png" href = "title_logos/icons8-check-book-64.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel = "icon" type = "image/png" 
+    href = "title_logos/icons8-check-book-64.png">
+    <link rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Autour One' 
+    rel='stylesheet'>
   </head>
   <body>
   <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
@@ -20,7 +23,9 @@
         <h3>Add blog:</h3>
         <div class="form-group">
           <label for="inputlg">Enter the blog title :</label></br>
-          <input type="text" name = "title" class="form-control input-sm" value="<?php echo $blogdata['blog_title']?>" required></br>
+          <input type="text" name = "title" class="form-control input-sm" 
+            value="<?php echo $blogdata['blog_title']?>" required>
+          </br>
         </div>
         <div class="form-group">
           Enter the blog body:</br>  
@@ -29,8 +34,11 @@
             ?>
           </textarea>
         </div>
-        <input type="submit" class = "btn btn-success" value="SAVE" name = "save">
-        <a class="btn btn-light" href="my blog">CANCEL</a>
+        <input type="submit" class = "btn btn-success" 
+        value="SAVE" name = "save">
+        <a class="btn btn-light" href="my blog">
+          CANCEL
+        </a>
       </form>
     </div>
   </body>

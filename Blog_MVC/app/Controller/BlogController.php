@@ -55,6 +55,17 @@ class BlogController {
     return $blogdata;
   }
 
+  /**
+   * Upload the image of the blog.
+   *
+   * @param [String] $fileName The name of the file which the user uploads.
+   * @param [String] $fileTempName The temporary file name which is stored 
+   * in the buffer.
+   * @param [String] $fileType The type of the file.
+   * @param [int] $fileError Holding the error when the file is uploaded.
+   * @return [String] $img 
+   * The path of the that is to be stored in the database.
+   */
   public function blogimageupload($fileName, $fileTempName, 
   $fileType, $fileError){
     $fileExtension = explode('.', $fileName);

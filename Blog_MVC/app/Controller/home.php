@@ -18,6 +18,7 @@
     $page_no = 0;
   }
   
+  //Preparing the value for the home View.
   $user_id = $_SESSION['code'];
   $result = $blog->getall($page_no);
   $count = $blog->countblog();
@@ -27,4 +28,3 @@
   
   //loading the view of the Home page 
   require_once('app/View/home.php');
-?>

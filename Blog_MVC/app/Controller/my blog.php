@@ -1,16 +1,14 @@
 <?php  
   include('vendor/autoload.php');
-  use Controller\BlogController;
-
-  $blogController = new BlogController();
+  use Model\Blog;
+  
+  //Checking the user is logged in or not 
   session_start();
   if(!isset($_SESSION['code'])) {
     header('location: home');
   }  
-  session_start();
-  if(!isset($_SESSION['code'])) {
-    header('location: home');
-  }
+
+  //getting the data from the add blog page
   $title ="";
   $blog_body = "";
   $user_id = $_SESSION['code'];
@@ -34,17 +32,19 @@
       } else {
         $img = "";
       }
-    
     }
+
+    //savaing the data in the Blog database.
     $blog = new Blog($title, $blog_body, $img);
     $result = $blog->putdata($user_id,$blog);
   }
   
+  //preparing the data for the My Blog view page.
   $user_id = $_SESSION['code']; 
   $blog = new Blog(" "," "," "," "," "," "); 
   $row = $blog->getusername($user_id);
   $result = $blog->getuserblog($user_id);
   $time  = date('m/d/Y H:i', $row['time']);
-  require_once('app/View/my blog.php');
 
-?>
+  //Loading the My blog View. 
+  require_once('app/View/my blog.php');
