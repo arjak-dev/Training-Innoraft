@@ -20,10 +20,12 @@
           Login
         </h3></br>
         Enter user name:</br>
-        <input type="text" name = "username" class = "form-control" placeholder="User Name" required>
+        <input type="text" name = "username" class = "form-control" 
+        placeholder="User Name" required>
         <label></label></br>
         Enter password: </br>
-        <input type="password" name = "password" class = "form-control" placeholder="Password" required>
+        <input type="password" name = "password" class = "form-control" 
+        placeholder="Password" required>
         <lable>
           <?php
             if (isset($_GET['error'])){
@@ -31,12 +33,11 @@
             }
           ?>
         </lable></br>
-        <button name="submit" type="submit" class="btn btn-primary button-position">Submit</button>
+        <button name="submit" type="submit" 
+        class="btn btn-primary button-position">Submit</button>
         <a class="btn btn-secondary button-position" href="home">CANCEL</a>
       </form>
     </div>
   </div>
   </body>
 </html>
-
-

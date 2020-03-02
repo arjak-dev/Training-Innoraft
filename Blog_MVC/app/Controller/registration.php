@@ -10,11 +10,6 @@
     $phone_no = $_POST['phone_no'];
     $password = $_POST['password'];
     $img = "";
-
-
-
-
-
         if (isset($_FILES['file'])) {
         $file = $_FILES["file"];
         if($file['name'] != NULL){
@@ -41,7 +36,13 @@
             $img = "";
         } 
       }
-    $new_user = new User($user_name, $first_name, $last_name, $email_id, $phone_no, $password);
+    $new_user = new User(
+      $user_name, 
+      $first_name, 
+      $last_name, 
+      $email_id, 
+      $phone_no, 
+      $password);
     $result = $new_user->putdata($new_user,$img);
     // print_r($result);
     if ($result == 'true') {
@@ -53,6 +54,3 @@
         ]);
     }
   }
- 
-
-  ?>

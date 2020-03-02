@@ -4,15 +4,25 @@
     <title>
       Profile
     </title>
-    <link rel = "icon" type = "image/png" href = "title_logos/icons8-toggle-on-64.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel = "icon" type = "image/png" 
+    href = "title_logos/icons8-toggle-on-64.png">
+    <link 
+      rel="stylesheet" 
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link href='https://$row =fonts.googleapis.com/css?family=Sofia' rel='stylesheet'> -->
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link 
+      href='https://fonts.googleapis.com/css?family=Autour One' rel='
+      stylesheet'>
+    <script 
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+    <script 
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
@@ -25,10 +35,10 @@
     </nav>
     <div class = "container Profile">
       <div class="profile-div text-center">
-      <?php if ($row['image'] == NULL): ?>
-        <img class='profile-image' src='../dummy-image.jpg'>
+      <?php if ($image == NULL): ?>
+        <img class='profile-image' src='resources/dummy-image.jpg'>
       <?php else: ?>
-        <img class='profile-image' src='<?php echo $row['image'] ?>'>
+        <img class='profile-image' src='<?php echo $image ?>'>
       <?php endif ?>
         <table>
           <tr>
@@ -37,7 +47,7 @@
             </td>
             <td>
               <?php
-                echo $row['first_name'];
+                echo $first_name;
               ?>
             </td>
           </tr>
@@ -47,7 +57,7 @@
             </td>
             <td>
               <?php
-                echo $row['last_name'];
+                echo $last_name;
               ?>
             </td>
           </tr>
@@ -57,7 +67,7 @@
             </td>
             <td>
               <?php
-                echo $row['phone_no'];
+                echo $phone_no
               ?>
             </td>
           </tr>
@@ -67,12 +77,14 @@
             </td>
             <td>
               <?php
-                echo $row['email_id'];
+                echo $email_id;
               ?>
             </td>
           </tr>
         </table>
-        <a class="btn btn-secondary button-position" href="Edit Profile">Edit Profile</a>
+        <a class="btn btn-secondary button-position" href="Edit Profile">
+          Edit Profile
+        </a>
       </div>
     </div>
   </body>

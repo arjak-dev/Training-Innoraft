@@ -22,11 +22,16 @@
         <a href="home" class="btn btn-secondary btn-sm"> Home </a>
         </li>
         <li class='nav-item'>
-          <a href="add blog" class="btn btn-secondary btn-sm"> Add Blogs </a>
+          <a href="add blog" class="btn btn-secondary btn-sm"> 
+            Add Blogs 
+          </a>
         </li>
         <li class='nav-item profile-li'>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle btn-sm" 
+          type="button" id="dropdownMenu2" 
+          data-toggle="dropdown" 
+          aria-haspopup="true" aria-expanded="false">
           <?php 
             if ($row['image'] == NULL) {
             echo "<img class='profile-img' src='../dummy-image.jpg'>";
@@ -36,10 +41,14 @@
             echo "  ".$row['first_name']." ".$row['last_name']; 
           ?>
           </button>
-          
-          <div class="dropdown-menu dropdown-div" aria-labelledby="dropdownMenu2">
-            <a class="dropdown-item" type="button" href="view profile">View Profile</a>
-            <a class="dropdown-item" href="logout" type="button">Logout</a>
+          <div class="dropdown-menu dropdown-div" 
+          aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" type="button" href="view profile">
+              View Profile
+            </a>
+            <a class="dropdown-item" href="logout" type="button">
+              Logout
+            </a>
           </div>
         </div>
         </li>
@@ -52,12 +61,28 @@
             <div class='card card-margin'>
                 <div class='card-body'>
                   <h5 class='card-title'> <?php echo $row['blog_title'] ?></h5>
-                  <footer class='blockquote-footer'><?php echo $user_name['first_name'] ?>
-                       <cite title='Source Title'><?php echo $time ?></cite></footer>
+                  <footer class='blockquote-footer'>
+                    <?php echo $user_name['first_name'] ?>
+                       <cite title='Source Title'>
+                        <?php echo $time ?>
+                       </cite>
+                  </footer>
                   <br>
-                  <a href='read?q= <?php echo $row['blog_id'] ?>' class='btm-margin btn btn-success'>Read more</a>
-                  <a href='edit?q=<?php echo $row['blog_id'] ?>' class='btm-margin btn btn-primary'>Edit</a>
-                  <a href='Delete?q=<?php echo $row['blog_id'] ?>' class='btm-margin btn btn-danger'>Delete</a>
+                  <a 
+                    href='read?q= <?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-success'>
+                    Read more
+                  </a>
+                  <a 
+                    href='edit?q=<?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-primary'>
+                    Edit
+                  </a>
+                  <a 
+                    href='Delete?q=<?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-danger'>
+                    Delete
+                  </a>
                 </div>
               </div>
           <?php endwhile ?>

@@ -1,19 +1,19 @@
 <?php
 namespace Model;
-class Blog {
 
-  /**
-   * Describes the structure of the Blog data
-   * @var title String 
-   * The title of the blog 
-   * @var body String
-   * The body of the blog
-   * @var  img String
-   * The path of the image with the image name of the Blog 
-   * @var database DatabaseConnection 
-   * The object of the Dtabaseconnection class use to 
-   * run the query string
-   */
+/**
+ * Describes the structure of the Blog data.
+ * @var title String 
+ * The title of the blog 
+ * @var body String
+ * The body of the blog
+ * @var  img String
+ * The path of the image with the image name of the Blog 
+ * @var database DatabaseConnection 
+ * The object of the Dtabaseconnection class use to 
+ * run the query string
+ */
+class Blog {
     public $title;
     public $body;
     public $img;
@@ -21,16 +21,16 @@ class Blog {
     public $database;
 
     /**
-     * Constructor of Blog 
+     * Constructor of Blog class.
      * 
      * @param $title String
-     * Title of the blog
+     * Title of the blog.
      * 
      * @param $body String 
-     * Body of the blog
+     * Body of the blog.
      * 
      * @param $img String 
-     * Contains the sourche path of the blog image 
+     * Contains the source path of the blog image.
      * 
      */
     function __construct ($title, $body, $img)
@@ -42,13 +42,13 @@ class Blog {
     }
 
     /**
-     * Put the Blog data in the database
+     * Put the Blog data in the database.
      * 
      * @param $user_id int
-     * User id of the user who writes the blog
+     * User id of the user who writes the blog.
      * 
      * @param $blog Blog
-     * Contains the data of the blog 
+     * Contains the data of the blog.
      */
     function putdata ($user_id, $blog) {
       $sql = "select * from blog where blog_title = '$blog->title'";
@@ -66,12 +66,13 @@ class Blog {
      * Get the BLogs of a particular user from the database.
      * 
      * @param $user_id int 
-     * the user id of the blog whoes blog is to be fetch
+     * The user id of the blog whoes blog is to be fetch.
      * 
      * @return 
-     * if results are present return a mysqli object contains all the data of blogs 
+     * if results are present return a mysqli object contains all the data of
+     *  blogs 
      * of a user
-     * else return false
+     * else return false.
      */ 
     function getuserblog ($user_id) {
       $sql = "select * from blog where user_id = '$user_id'";
@@ -94,16 +95,17 @@ class Blog {
     }
 
     /**
-     * Get the user name for a particular User id
+     * Get the user name for a particular User id.
      * 
      * @param $user_id int 
-     * the user id whose name is to be fetched
+     * The user id whose name is to be fetched.
      * 
      * @return $user_name String 
-     * user name 
+     * user name.
      */
     function getusername($user_id) {
-      $sql = "select first_name,last_name,image from user where user_id = '$user_id'";
+      $sql = 
+      "select first_name,last_name,image from user where user_id = '$user_id'";
       $result = $this->database->runquery($sql);
       $row = $result->fetch_assoc();
       return $row;
@@ -113,12 +115,12 @@ class Blog {
      * Get the blog details for a particular blog id.
      * 
      * @param $blog_id int 
-     * blog id for a blog
+     * Blog id for a blog.
      * 
      * @return 
      * if result is present the it return a mysqli object
      * else 
-     * return databae error 
+     * return databae error. 
      */
     function getblogdetails ($blog_id) {
       $sql = "select blog_title,blog_body,image from blog where blog_id = '$blog_id'";
@@ -126,16 +128,16 @@ class Blog {
     }
 
     /**
-     * Update the Blog title and the body
+     * Update the Blog title and the body.
      * 
      * @param $blog_id int 
-     * Blog id of the blog which is to be update 
+     * Blog id of the blog which is to be update.
      * 
      * @param $title String 
-     * The title of the blog to be update
+     * The title of the blog to be update.
      * 
      * @param $body string 
-     * The title of the body that is to be updated
+     * The title of the body that is to be updated.
      * 
      * @return mysqli object
      */
@@ -146,10 +148,10 @@ class Blog {
     }
 
     /**
-     * Delete a particular blog from the database
+     * Delete a particular blog from the database.
      * 
      * @param $blog_id int 
-     * the id of the blog that is to deleted
+     * The id of the blog that is to be deleted.
      * 
      */
     function deleteblog($blog_id) {
@@ -158,8 +160,9 @@ class Blog {
     }
 
     /**
-     * Count total the no. of blog present in the database
-     * @return int 
+     * Count total the no. of blog present in the database.
+     * @return int No. of blogs present int he Database. 
+     * 
      */
     function countblog() {
       $sql = "select count(*) as a from blog";
