@@ -15,7 +15,9 @@
    */
   if (isset($_POST['save'])) {
     $title = addslashes($_POST['title']);
+    $title = htmlspecialchars($title);
     $body = addslashes($_POST['blog-body']);
+    $body = htmlspecialchars($body);
     $blog_id = $_GET['q'];
     $blog_controller->updateblogrequest($title, $body, $blog_id);
     header('location: my blog');
