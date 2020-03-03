@@ -1,11 +1,5 @@
 <?php
-  include('../Blog.php');
-  if (isset($_GET['q'])) {
-    $q = $_GET['q'];
-  }
-  $blog = new Blog(" ", " "," ");
-  $result = $blog->getblogdetails($q);
-  $row = $result->fetch_assoc();
+  include_once('code.php');
 ?>
 
 <!Doctype html>
@@ -14,7 +8,7 @@
     <title>
       Edit blog
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-check-book-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-check-book-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>

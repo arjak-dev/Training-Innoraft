@@ -1,48 +1,5 @@
 <?php
-include('../Blog.php');
-  
-  session_start();
-  if(!isset($_SESSION['code'])) {
-    header('location: ../Blog');
-  }
-  // $blog = "";
-  $title ="";
-  $blog_body = "";
-  $user_id = $_SESSION['code'];
-  $img = "";
-  if (isset($_POST['save'])) {
-    $title = addslashes($_POST['title']);
-    $blog_body = addslashes($_POST['blog-body']);
-    if (isset($_FILES['file'])) {
-      $file = $_FILES["file"];
-      if($file['name'] != NULL){
-        $fileName = $file['name'];
-          $fileTempName = $file['tmp_name'];
-          $fileType = $file['type'];
-          $fileError = $file['error'];
-          $fileExtension = explode('.',$fileName);
-
-          $allowed = array("jpg","jpeg","png");
-          $fileActualExtension = strtolower(end($fileExtension));
-          
-          if(in_array($fileActualExtension,$allowed)){
-            if ($fileError === 0) {
-                $fileNewName = uniqid(rand(),true).".".$fileActualExtension;
-                $fileDestination="../upload/".$fileNewName;
-                move_uploaded_file($fileTempName,$fileDestination);
-                $img = $fileDestination;
-            }
-            } else {
-               $img = ""; 
-            }
-            } else {
-              $img = "";
-            }
-    
-    }
-    $blog = new Blog($title, $blog_body, $img);
-    $result = $blog->putdata($user_id,$blog);
-  }
+  include_once('user_blog.php');
  ?>
 <!DOCTYPE html>
 <html>
@@ -50,7 +7,7 @@ include('../Blog.php');
     <title>
       My Blogs
     </title>
-     <link rel = "icon" type = "image/png" href = "../icons8-menu-16.png">
+     <link rel = "icon" type = "image/png" href = "../title_logos/icons8-menu-16.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -64,12 +21,13 @@ include('../Blog.php');
     <nav class="navbar navbar-expand-mg bg-dark navbar-dark">
       <a class= "navbar-brand logo-color" href="">Blogify</a>
       <ul class='display-ul'>
-        <li>
+        <li class='nav-item'>
         <a href="../Blog" class="btn btn-secondary btn-sm"> Home </a>
-          <a href="add_blog.php" class="btn btn-secondary btn-sm"> Add Blogs </a>
-         
         </li>
-        <li>
+        <li class='nav-item'>
+          <a href="add_blog.php" class="btn btn-secondary btn-sm"> Add Blogs </a>
+        </li>
+        <li class='nav-item profile-li'>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <?php

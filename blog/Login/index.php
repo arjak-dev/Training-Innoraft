@@ -1,25 +1,11 @@
-<?php
-  include('../User.php');
-  if(isset($_POST['submit'])){
-    $user_name = $_POST['username'];
-    $password = $_POST['password'];
-    $status = (new User('a','a','a','a','a','a'))->checkuser($user_name, $password);
-    if($status){
-      session_start();
-      $_SESSION['code'] = $status; 
-      header('location: ../Blog');
-    } else {
-      $error = "login failed";
-    }
-  }
-  ?>
+<?php include_once('login.php');?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>
       Login to your Account
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-toggle-on-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-toggle-on-64.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>

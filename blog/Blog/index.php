@@ -1,16 +1,5 @@
 <?php
-  include('../Blog.php');
-  // include('../User.php');
-  $page_no = 0;
-  echo "$count";
-  $blog = new Blog("","","");
-  if(isset($_GET['page_no'])) {
-    $page_no = $_GET['page_no'];
-  } else {
-    $page_no = 0;
-  }
-  $result = $blog->getall($page_no);
-  $count = $blog->countblog();
+  include_once('home.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +7,7 @@
     <title>
       Blogify
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-home-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-home-64.png">
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
@@ -42,7 +31,7 @@
             echo "<li class='nav-item'>";
               echo "<a class='btn btn-primary btn-sm' href='../UserBlog'>My Blog</a>";
             echo "</li>";
-            echo "<li class='nav-item'>";
+            echo "<li class='nav-item profile-li'>";
               echo "<div class='dropdown'>";
                 echo "<button class='btn btn-secondary dropdown-toggle btn-sm' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
                   $user_id = $_SESSION['code'];  
@@ -128,13 +117,10 @@
                 echo "<a class='page-link pager' href='?page_no=$index'>Next</a>";
               echo "</li>";
             }
-          ?>
-          
-          
+          ?>  
         </ul>
     </nav> 
     </div>
-    
     <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
   </body>
 </html>

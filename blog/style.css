@@ -249,3 +249,7 @@ h5 {
     border: none;
     background-color: #1c2225;
 }
+
+.profile-li {
+    padding-right: 45px;
+}

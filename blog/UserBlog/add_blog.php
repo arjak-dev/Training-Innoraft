@@ -1,8 +1,5 @@
 <?php  
-  session_start();
-  if(!isset($_SESSION['code'])) {
-    header('location: ../Blog');
-  }
+  include_once('user_blog.php');
 ?>
 <!DOCTYPE html>
 <html>

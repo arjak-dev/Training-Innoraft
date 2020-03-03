@@ -1,14 +1,5 @@
 <?php
-  include('../Blog.php');
-  if(isset($_GET['q'])){
-    $q = $_GET['q'];
-  }
-  $blog =new Blog(" "," "," ");
-  $result = $blog->getblogdetails($q);
-  
-  if ($result->num_rows) {
-    $row = $result->fetch_assoc();
-  }
+  include_once("read.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +7,7 @@
     <title>
       Read Blog
     </title>
-    <link rel = "icon" type = "image/png" href = "../icons8-credit-card-64.png">
+    <link rel = "icon" type = "image/png" href = "../title_logos/icons8-credit-card-64.png">
      <link rel = "icon" type = "image/png" href = "/icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
