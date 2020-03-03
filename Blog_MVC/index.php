@@ -62,6 +62,10 @@
       include(__DIR__."/app/Controller/regvalid.php");
     break;
     
+    case 'google login':
+      include(__DIR__ . "/app/Controller/google_signup.php");
+    break;
+
     default: include(__DIR__."/app/View/Page_not_found.php");
   }
    

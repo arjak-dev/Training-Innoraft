@@ -78,9 +78,9 @@
           <?php while ($row = $result->fetch_assoc()): ?>
               <div class='card card-margin'>
                 <div class='card-body'>
-                  <h5 class='card-title card-head'>
+                  <h6 class='card-title card-head'>
                     <?php echo $row['blog_title']?>
-                  </h5>
+                  </h6>
                   <footer class='blockquote-footer'>
                   <?php $user_name = $blog->getusername($row['user_id']); 
                    echo $user_name['first_name'] ?>
@@ -97,7 +97,6 @@
         <?php endif ?>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
-         
           <?php if ($page_no != 0) : 
               $index = $page_no - 2; ?>
               <li class='page-item'>

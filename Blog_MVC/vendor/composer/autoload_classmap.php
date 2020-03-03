@@ -6,9 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Controller\\BlogController' => $baseDir . '/app/Controller/BlogController.php',
-    'Controller\\UserController' => $baseDir . '/app/Controller/UserConttroller.php',
-    'Model\\Blog' => $baseDir . '/app/Model/Blog.php',
-    'Model\\DatabaseConnection' => $baseDir . '/app/Model/DatabaseConnection.php',
-    'Model\\User' => $baseDir . '/app/Model/User.php',
+    'Google_Service_Exception' => $vendorDir . '/google/apiclient/src/Google/Service/Exception.php',
+    'Google_Service_Resource' => $vendorDir . '/google/apiclient/src/Google/Service/Resource.php',
 );

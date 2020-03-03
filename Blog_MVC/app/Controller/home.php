@@ -1,11 +1,20 @@
 <?php
   //including the Blog class through autoloader
-  include('vendor/autoload.php');
+  require_once 'vendor/autoload.php';
   use Model\Blog;
 
   //starting the session to get the user id 
-  // and checking the user is login on or not 
+  // and checking the user is login on or not
   session_start();
+  $client = new Google_Client();
+  $client->setAuthConfig('resources/credentials.json');
+  session_start();
+  if (isset($_GET['code'])) {
+    $client->authenticate($_GET['code']);
+    $_SESSION['access_token'] = $client->getAccessToken();
+    header('location: google login');
+  }
+  
   $page_no = 0;
 
   //Creating the instance of the BLog class
