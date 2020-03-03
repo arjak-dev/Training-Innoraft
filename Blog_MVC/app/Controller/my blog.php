@@ -15,7 +15,9 @@
   $img = "";
   if (isset($_POST['save'])) {
     $title = addslashes($_POST['title']);
+    $title = htmlspecialchars($title);
     $blog_body = addslashes($_POST['blog-body']);
+    $blog_body = htmlspecialchars($blog_body);
     if (isset($_FILES['file'])) {
       $file = $_FILES["file"];
       if($file['name'] != NULL){

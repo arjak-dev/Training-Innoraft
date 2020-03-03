@@ -80,7 +80,7 @@
                   </a>
                   <a 
                     href='Delete?q=<?php echo $row['blog_id'] ?>' 
-                    class='btm-margin btn btn-danger'>
+                    class='btm-margin btn btn-danger' onclick = "delete_confirm()">
                     Delete
                   </a>
                 </div>
@@ -90,5 +90,6 @@
             <h3> No Blogs Present Till Date </h3>
         <?php endif ?>
     </div>
+    <script src="Script/delete_confirmation.js"></script>
   </body>
 </html>
