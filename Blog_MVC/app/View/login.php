@@ -23,7 +23,7 @@
         </h3></br>
         <a href="google login" class="btn btn-danger btn-block">
           <i class="fa fa-google"></i>
-          Sign up with <b>Google</b>
+          Sign in with <b>Google</b>
         </a></br>
         <h5> ---OR---</h5>
         Enter user name:</br>
