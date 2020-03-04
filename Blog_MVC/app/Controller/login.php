@@ -11,7 +11,6 @@
     // var_dump($_SESSION['access_token']);
     header('location: google login');
   }
-
   $userController = new UserController();
   //getting the data from the Login page
   if(isset($_POST['submit'])){
@@ -28,5 +27,10 @@
       header('location: login?error=1');
     }
   }
+  
   //load the login view
-  require_once('app/View/login.php');
+  if(isset($_SESSION['code'])) {
+    header('location: home');
+  } else {
+    require_once('app/View/login.php');
+  }
