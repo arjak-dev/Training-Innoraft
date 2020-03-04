@@ -1,4 +1,20 @@
-<?php include_once('app/Controller/registration.php'); ?>
+<?php include_once('app/Controller/registration.php');
+  // include('vendor/autoload.php');
+
+  use Controller\GoogleConfig;
+  session_start();
+  if($_GET['code']){
+ 
+  $googleConfig = new GoogleConfig('http://localhost/Training-Innoraft/Blog_MVC/registration');
+  $client = $googleConfig->returnclient();
+  $client->authenticate($_GET['code']);
+  $_SESSION['access_token'] = $client->getAccessToken();
+  // var_dump($_SESSION['access_token']);
+  header('location: google signup');
+  }
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +42,7 @@
           Create Account
         </h3>
         </br>
-        <a href="google login" class="btn btn-danger btn-block">
+        <a href="google signup" class="btn btn-danger btn-block">
         <i class="fa fa-google"></i> 
           Sign up with <b>Google</b>
         </a></br>

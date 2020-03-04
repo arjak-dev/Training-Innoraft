@@ -99,11 +99,22 @@
       * @param [type] $email
       * @return void
       */
-    public function googlelogin($first_name, $last_name, $image, $email){
+    public function googlesignup($userData){
+      $email = $userData['email'];
+      $first_name = $userData["given_name"];
+      $last_name = $userData['family_name'];
+      $image = $userData['picture'];
       $user = new User($email, $first_name, $last_name, $email, " ", " ");
       // echo $user->first_name;
-      var_dump($user->putgoogledata($image));
+      $user_id = $user->putgoogledata($image);
       session_start();
-      session_unset();
+      $_SESSION['code'] = $user_id;
+    }
+
+    public function googlelogin($userData) {
+      $email = $userData['email'];
+      $user = new User(" ", " ", " ", " ", " ", " ");
+      $user_id = $user->checkgoogleuser($email);
+      return $user_id;
     }
   }

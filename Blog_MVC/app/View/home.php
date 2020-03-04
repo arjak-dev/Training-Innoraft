@@ -47,7 +47,7 @@
               <?php if ($row['image'] == NULL) : ?>
                 <img class='profile-img' src='../dummy-image.jpg'>
               <?php else: ?>
-                <img class='profile-img' src='<?php echo $row['image'] ?>'>;
+                <img class='profile-img' src='<?php echo $row['image'] ?>'>
               <?php endif ?>
             <?php echo $row['first_name']." ".$row['last_name']; ?> 
             </button>
