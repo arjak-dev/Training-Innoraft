@@ -10,7 +10,7 @@
     var_dump($result);
     header('location: home');
   }
-  if(isset($_SESSION['code'])){
+  if(isset($_SESSION['user_name'])){
     include_once('app/View/change password.php');
   } else {
     header("location: home");

@@ -254,3 +254,17 @@ h5 {
 h6 {
     color: white;
 }
+
+.forgot_password{
+    text-decoration: none;
+    color: white;
+}
+.forgot_password:hover{
+    color: lightgray;
+}
+.forgot_password p{
+    text-align: right;
+}
+
+
+

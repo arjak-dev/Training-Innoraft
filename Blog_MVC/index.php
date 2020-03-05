@@ -74,6 +74,14 @@
       include(__DIR__ . "/app/Controller/change password.php");
     break;
 
+    case 'forgot password':
+      include(__DIR__ . "/app/Controller/forgotpassword.php");
+    break;
+
+    case 'otp check':
+      include(__DIR__ . "/app/Controller/optcheck.php");
+    break;
+
     default: include(__DIR__."/app/View/Page_not_found.php");
   }
    
