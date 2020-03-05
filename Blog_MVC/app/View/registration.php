@@ -1,23 +1,22 @@
 <?php include_once('app/Controller/registration.php');
   // include('vendor/autoload.php');
 
-  use Controller\GoogleConfig;
-  session_start();
-  if($_GET['code']){
- 
-  $googleConfig = new GoogleConfig('http://localhost/Training-Innoraft/Blog_MVC/registration');
-  $client = $googleConfig->returnclient();
-  $client->authenticate($_GET['code']);
-  $_SESSION['access_token'] = $client->getAccessToken();
-  // var_dump($_SESSION['access_token']);
-  header('location: google signup');
-  }
-
-
+    use Controller\GoogleConfig;
+    session_start();
+    if($_GET['code']){
+      $googleConfig = new GoogleConfig('http://localhost/Training-Innoraft/Blog_MVC/registration');
+      $client = $googleConfig->returnclient();
+      $client->authenticate($_GET['code']);
+      $_SESSION['access_token'] = $client->getAccessToken();
+      // var_dump($_SESSION['access_token']);
+      header('location: google signup');
+    }
+    if (isset($_SESSION['code'])) {
+      header('location: home');
+    }
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Registration</title>
   <link rel="icon" type="image/png" href="title_logos/icons8-toggle-off-64.png">
