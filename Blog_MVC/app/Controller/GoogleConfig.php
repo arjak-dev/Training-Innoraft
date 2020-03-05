@@ -4,7 +4,12 @@
   use Google_Service_Oauth2;
   class GoogleConfig {
     private $googleClient;
-
+    
+    /**
+     * controller of Google client
+     *
+     * @param [type] $redirect_uri
+     */
     function __construct($redirect_uri){
       $this->googleClient = new Google_Client();
       $this->googleClient->setAuthConfig('resources/credentials.json');
