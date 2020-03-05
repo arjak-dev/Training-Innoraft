@@ -1,6 +1,7 @@
 <?php  
   include('vendor/autoload.php');
   use Model\Blog;
+  use Controller\BlogController;
   
   //Checking the user is logged in or not 
   session_start();
@@ -8,6 +9,7 @@
     header('location: home');
   }  
 
+  $blogcontroller = new BlogController();
   //getting the data from the add blog page
   $title ="";
   $blog_body = "";
@@ -15,7 +17,9 @@
   $img = "";
   if (isset($_POST['save'])) {
     $title = addslashes($_POST['title']);
+    $title = htmlspecialchars($title);
     $blog_body = addslashes($_POST['blog-body']);
+    $blog_body = htmlspecialchars($blog_body);
     if (isset($_FILES['file'])) {
       $file = $_FILES["file"];
       if($file['name'] != NULL){
@@ -23,7 +27,7 @@
         $fileTempName = $file['tmp_name'];
         $fileType = $file['type'];
         $fileError = $file['error'];
-        $img = $blogController->blogimageupload(
+        $img = $blogcontroller->blogimageupload(
           $fileName,
           $fileTempName,
           $fileType,

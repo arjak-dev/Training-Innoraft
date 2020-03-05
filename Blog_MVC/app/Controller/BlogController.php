@@ -81,6 +81,7 @@ class BlogController {
     } else {
       $img = "";
     }
+    return $img;
   }
   
 }

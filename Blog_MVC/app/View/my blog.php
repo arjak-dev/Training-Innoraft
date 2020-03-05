@@ -66,39 +66,42 @@
       </li>
     </ul>
   </nav>
-  <div class="container">
-    <?php if (mysqli_num_rows($result)) : ?>
-      <?php while ($row = $result->fetch_assoc()) :
-        $user_name = $blog->getusername($row['user_id']); ?>
-        <div class='card card-margin'>
-          <div class='card-body'>
-            <h6 class='card-title'> <?php echo $row['blog_title'] ?></h6>
-            <footer class='blockquote-footer'>
-              <?php echo $user_name['first_name'] ?>
-              <cite title='Source Title'>
-                <?php echo $time ?>
-              </cite>
-            </footer>
-            <br>
-            <a href='read?q= <?php echo $row['blog_id'] ?>' 
-            class='btm-margin btn btn-success'>
-              Read more
-            </a>
-            <a href='edit?q=<?php echo $row['blog_id'] ?>' 
-            class='btm-margin btn btn-primary'>
-              Edit
-            </a>
-            <a href='Delete?q=<?php echo $row['blog_id'] ?>' 
-            class='btm-margin btn btn-danger'>
-              Delete
-            </a>
-          </div>
-        </div>
-      <?php endwhile ?>
-    <?php else : ?>
-      <h3> No Blogs Present Till Date </h3>
-    <?php endif ?>
-  </div>
-</body>
-
+    <div class="container">
+      <?php if (mysqli_num_rows($result)): ?>
+          <?php while ($row = $result->fetch_assoc()):  
+            $user_name = $blog->getusername($row['user_id']); ?>
+            <div class='card card-margin'>
+                <div class='card-body'>
+                  <h6 class='card-title'> <?php echo $row['blog_title'] ?></h6>
+                  <footer class='blockquote-footer'>
+                    <?php echo $user_name['first_name'] ?>
+                       <cite title='Source Title'>
+                        <?php echo $time ?>
+                       </cite>
+                  </footer>
+                  <br>
+                  <a 
+                    href='read?q= <?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-success'>
+                    Read more
+                  </a>
+                  <a 
+                    href='edit?q=<?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-primary'>
+                    Edit
+                  </a>
+                  <a 
+                    href='Delete?q=<?php echo $row['blog_id'] ?>' 
+                    class='btm-margin btn btn-danger' onclick = "delete_confirm()">
+                    Delete
+                  </a>
+                </div>
+              </div>
+          <?php endwhile ?>
+          <?php else: ?>
+            <h3> No Blogs Present Till Date </h3>
+        <?php endif ?>
+    </div>
+    <script src="Script/delete_confirmation.js"></script>
+  </body>
 </html>

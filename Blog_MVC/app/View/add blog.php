@@ -14,7 +14,8 @@
       <a class= "navbar-brand logo-color" href="">Bloggy</a>
     </nav>
     <div class='container add-blog'>
-      <form action="my blog" method="POST" enctype="multipart/form-data">
+      <form action="my blog" method="POST" enctype="multipart/form-data" 
+      id = "form_submit">
         <h3>Add blog:</h3>
         <div class="form-group">
           Enter the blog title :</br>
