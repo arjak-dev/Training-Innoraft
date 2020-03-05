@@ -90,7 +90,7 @@ class Blog {
      * else return false
      */
     function getall($page_no) {
-      $sql = "select * from blog LIMIT 2 OFFSET $page_no";
+      $sql = "select * from blog LIMIT 5 OFFSET $page_no";
       return $this->database->runquery($sql);
     }
 
