@@ -35,7 +35,7 @@
       $fileActualExtension = strtolower(end($fileExtension));
       if (in_array($fileActualExtension, $allowed)) {
         if ($fileError === 0) {
-          $fileNewName = uniqid(rand(), true) . "." . $fileActualExtension;
+          $fileNewName = time() . "." . $fileActualExtension;
           $fileDestination = "profile_picture/" . $fileNewName;
           move_uploaded_file($fileTempName, $fileDestination);
           $img = $fileDestination;
