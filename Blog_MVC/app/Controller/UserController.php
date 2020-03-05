@@ -11,6 +11,11 @@
    */
   class UserController {
 
+    public $user;
+    public function __construct()
+    {
+      $this->user = new User(" ", " ", " ", " ", " ", " ");
+    }
     /**
      * Upload the user profile and return the path of the picture.
      *
@@ -116,5 +121,9 @@
       $user = new User(" ", " ", " ", " ", " ", " ");
       $user_id = $user->checkgoogleuser($email);
       return $user_id;
+    }
+
+    public function changepassword($user_id, $new_password){
+      return $this->user->updatepassword($user_id, $new_password);
     }
   }

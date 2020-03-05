@@ -70,6 +70,10 @@
       include(__DIR__ . "/app/Controller/google_login.php");
     break;
 
+    case 'change password':
+      include(__DIR__ . "/app/Controller/change password.php");
+    break;
+
     default: include(__DIR__."/app/View/Page_not_found.php");
   }
    

@@ -80,11 +80,12 @@
       if ($result->num_rows > 0) {
         return "The User Name is already present";
       }
+      $password = md5($this->password);
       $sql = "insert into user(user_name, first_name, last_name, email_id, 
       phone_no, password,image)
       values('$this->user_name','$this->first_name', 
       '$this->last_name', '$this->email_id', '$this->phone_no',
-      '$this->password','$image')";
+      '$password','$image')";
       if ($this->database->runquery($sql)) {
         return "true";
       }
@@ -132,6 +133,7 @@
      * 
      */
     function checkuser ($user_name, $password) {
+      $password = md5($password);
       $sql = "select * from user where binary user_name = '$user_name' 
       and binary password = '$password'";
       $result = $this->database->runquery($sql);
@@ -185,4 +187,13 @@
       $this->database->runquery($sql);
     }
 
+    public function updatepassword($user_id, $password) {
+      $password = md5($password);
+      $sql = "update user set password = '$password' where user_id = '$user_id'";
+      if ($result = $this->database->runquery($sql)) {
+        return $result; 
+      } else {
+        return $result;
+      }
+    }
   }
