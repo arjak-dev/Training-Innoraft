@@ -52,7 +52,8 @@
       if ($result = $conn->query($sql)) { 
         return $result;
       } else {
-        return false;
+        return $conn->error;
       }
     }
+    
   }

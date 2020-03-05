@@ -90,6 +90,31 @@
       }
     }
     
+    function putgoogledata($image) {
+      $sql = "select * from user where user_name = '$this->user_name'";
+      $result = $this->database->runquery($sql);
+      if ($result->num_rows > 0) {
+        $sql = "select user_id from user where user_name = '$this->user_name'";
+        if ($result = $this->database->runquery($sql)){
+          $data = $result->fetch_assoc();
+          return $data['user_id'];
+        }
+      }
+      $sql = "insert into user(user_name, first_name, last_name, email_id, 
+      phone_no, password,image)
+      values('$this->user_name','$this->first_name', 
+      '$this->last_name', '$this->email_id', '$this->phone_no',
+      '$this->password','$image')";
+      if ($this->database->runquery($sql) == true) {
+        $sql = "select user_id from user where user_name = '$this->user_name'";
+        if ($result = $this->database->runquery($sql)) {
+          $data = $result->fetch_assoc();
+          return $data['user_id'];
+        }
+      } else {
+        return false;
+      }
+    }
     /**
      * Authenticate the user from the data stroed in the database.
      * 
@@ -117,6 +142,17 @@
       }
     }
 
+    public function checkgoogleuser($email) {
+      $sql = "select * from user where binary user_name = '$email'";
+      if ($result = $this->database->runquery($sql)) {
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          return $row['user_id'];
+        } else {
+          return false;
+        }
+      }
+    }
     /**
      * Get the user details.
      * @param  $user_id int 

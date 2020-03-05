@@ -241,7 +241,8 @@ textarea {
 }
 
 h5 {
-    color: white;   
+    color: white; 
+    text-align: center;  
 }
 
 .pager {
@@ -252,4 +253,7 @@ h5 {
 
 .profile-li {
     padding-right: 45px;
+}
+h6 {
+    color: white;
 }

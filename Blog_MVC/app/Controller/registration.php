@@ -1,7 +1,8 @@
 <?php
-  include('vendor/autoload.php');
+  include 'vendor/autoload.php';
   require_once('app/View/registration.php');
   use Model\User;
+  
   if(isset($_POST['submit'])){
     $user_name = $_POST['user_name'];
     $first_name = $_POST['first_name'];
