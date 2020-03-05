@@ -26,7 +26,7 @@
           if(in_array($fileActualExtension,$allowed)){
             if ($fileError === 0) {
               $fileNewName = uniqid(rand(),true).".".$fileActualExtension;
-              $fileDestination="profile_picture/".$fileNewName;
+              $fileDestination = "profile_picture/".$fileNewName;
               move_uploaded_file($fileTempName,$fileDestination);
               $img = $fileDestination;
             }
