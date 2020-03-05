@@ -186,7 +186,14 @@
             phone_no = '$phone_no' where user_id = '$user_id'";
       $this->database->runquery($sql);
     }
-
+    
+    /**
+     * Update the password of the user.
+     *
+     * @param [int] $user_id
+     * @param [String] $password
+     * @return Boolean
+     */
     public function updatepassword($user_id, $password) {
       $password = md5($password);
       $sql = "update user set password = '$password' where user_id = '$user_id'";

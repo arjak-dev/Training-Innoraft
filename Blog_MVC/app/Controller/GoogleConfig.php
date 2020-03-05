@@ -8,7 +8,7 @@
    */
   class GoogleConfig {
     private $googleClient;
-
+    
     /**
      * Constructor of GoogleConfig Class. It configure the Google client.
      *
