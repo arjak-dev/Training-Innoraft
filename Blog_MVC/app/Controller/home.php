@@ -15,9 +15,14 @@
   //Get the page no. from the GET request for implementing pager
   if(isset($_GET['page_no'])) {
     $page_no = $_GET['page_no'];
+    //checking the query string is valid or not 
+    if (!ctype_digit($page_no)) {
+      header('location: error');
+    }
   } else {
     $page_no = 0;
   }
+  
   
   //Preparing the value for the home View.
   $user_id = $_SESSION['code'];
