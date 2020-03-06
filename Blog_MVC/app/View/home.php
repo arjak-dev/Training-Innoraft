@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
 
-<head>
+  <head>
   <script src="Script/core.js" type="text/javascript" charset="utf-8" async defer>
   </script>
   <title>
@@ -15,16 +15,17 @@
   <link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="css/footer.css" rel="stylesheet" />
+  <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
   </script>
-
-</head>
-
-<body>
+  </head>
+  <body>
   <nav class='navbar navbar-expand-mg bg-dark navbar-dark'>
     <a class='navbar-brand logo-color' href=''>Blogify</a>
     <ul class='display-ul'>
@@ -52,10 +53,9 @@
         <li class='nav-item'>
           <a class='btn btn-primary btn-sm' href='my blog'>My Blog</a>
         </li>
-
     </ul>
   </nav>
-<?php else : ?>
+  <?php else : ?>
   <a class='btn btn-primary btn-sm' href='login'>Sign in</a>
   </li>
   <li class='nav-item'>
@@ -63,11 +63,11 @@
   </li>
   </ul>
   </nav>
-<?php endif ?>
-<div class="banner">
+  <?php endif ?>
+  <div class="banner">
   <div id="head" class="head"></div>
-</div>
-<div class="container">
+  </div>
+  <div class="container">
   <h3 class="read-blog">Read Blogs</h3>
   <?php if ($result->num_rows > 0) : ?>
     <?php while ($row = $result->fetch_assoc()) : ?>
@@ -119,8 +119,9 @@
       <?php endif ?>
     </ul>
   </nav>
-</div>
-<script src="Script/script.js" type="text/javascript" charset="utf-8" async defer></script>
-</body>
+  </div>
+  <script src="Script/script.js" type="text/javascript" charset="utf-8" async defer></script>
+  <?php include('app/View/footer_layout.php'); ?>
+  </body>
 
 </html>
