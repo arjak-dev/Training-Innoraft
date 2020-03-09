@@ -1,22 +1,24 @@
 <?php include_once('app/Controller/registration.php');
-  // include('vendor/autoload.php');
+// include('vendor/autoload.php');
 
-    use Controller\GoogleConfig;
-    session_start();
-    if($_GET['code']){
-      $googleConfig = new GoogleConfig('http://localhost/Training-Innoraft/Blog_MVC/registration');
-      $client = $googleConfig->returnclient();
-      $client->authenticate($_GET['code']);
-      $_SESSION['access_token'] = $client->getAccessToken();
-      // var_dump($_SESSION['access_token']);
-      header('location: google signup');
-    }
-    if (isset($_SESSION['code'])) {
-      header('location: home');
-    }
+use Controller\GoogleConfig;
+
+session_start();
+if ($_GET['code']) {
+  $googleConfig = new GoogleConfig('http://localhost/Training-Innoraft/Blog_MVC/registration');
+  $client = $googleConfig->returnclient();
+  $client->authenticate($_GET['code']);
+  $_SESSION['access_token'] = $client->getAccessToken();
+  // var_dump($_SESSION['access_token']);
+  header('location: google signup');
+}
+if (isset($_SESSION['code'])) {
+  header('location: home');
+}
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Registration</title>
   <link rel="icon" type="image/png" href="title_logos/icons8-toggle-off-64.png">
@@ -34,6 +36,7 @@
 </head>
 
 <body>
+  <?php include('app/View/navbar_layout.php'); ?>
   <div class="reg_bg_div">
     <div class="card bg-dark text-white reg_div">
       <form action="registration" method="POST" id="form_call" enctype="multipart/form-data">
@@ -42,7 +45,7 @@
         </h3>
         </br>
         <a href="google signup" class="btn btn-danger btn-block">
-        <i class="fa fa-google"></i> 
+          <i class="fa fa-google"></i>
           Sign up with <b>Google</b>
         </a></br>
         <h5> ---OR---</h5>

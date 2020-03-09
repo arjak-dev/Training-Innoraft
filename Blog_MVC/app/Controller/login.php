@@ -22,6 +22,7 @@
       //starting the session and indicates that the user is logged in      
       //setting a session variable code
       $_SESSION['code'] = $status;
+      $_SESSION['user_name'] = $user_name;
       header('location: home');
     } else {
       header('location: login?error=1');

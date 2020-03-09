@@ -9,7 +9,7 @@
     font-family: 'Montserrat', ;
 }
 .center_div {
-    width: 300px;
+    width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -92,6 +92,7 @@ ul.display-ul {
 
 .card-margin {
     margin: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #212c31ed;
 }
@@ -255,11 +256,13 @@ h6 {
     color: white;
 }
 
-.user{
+.forgot_password{
     text-decoration: none;
     color: white;
 }
-
-.user:hover {
-    color: lightgrey;
+.forgot_password:hover{
+    color: lightgray;
+}
+.forgot_password p{
+    text-align: right;
 }

@@ -16,26 +16,25 @@
 </head>
 
 <body>
+  <?php include('app/View/navbar_layout.php'); ?>
   <div class="bg_div">
     <div class="container center_div card bg-dark text-white">
       <form action="change password" method="POST" id=form_call>
         <h3>Change Password</h3>
         </br>
         <label> New Password:</label>
-        <input type="password" placeholder="New Password" class="form-control" 
-        id="new_password" name="new_password"></br>
+        <input type="password" placeholder="New Password" class="form-control" id="new_password" name="new_password"></br>
         <label>Confirm Password:</label>
-        <input type="password" placeholder="Confirm password" class="form-control" 
-        id="confirm_password">
+        <input type="password" placeholder="Confirm password" class="form-control" id="confirm_password">
         </br>
         <label id="error"></label>
         </br>
-        <button name="submit" type="submit" 
-        class="btn btn-primary button-position">SUBMIT</button>
+        <button name="submit" type="submit" class="btn btn-primary button-position">SUBMIT</button>
         <a class="btn btn-secondary button-position" href="home">CANCEL</a>
       </form>
     </div>
   </div>
   <script src="Script/check_password.js"></script>
 </body>
+
 </html>
